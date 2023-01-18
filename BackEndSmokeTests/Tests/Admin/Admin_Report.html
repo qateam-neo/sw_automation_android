@@ -1,0 +1,3000 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Backend Specific Essential APIs!</title>
+    <style>body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  /* do not increase min-width as some may use split screens */
+  min-width: 800px;
+  color: #999;
+}
+
+h1 {
+  font-size: 24px;
+  color: black;
+}
+
+h2 {
+  font-size: 16px;
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+a {
+  color: #999;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/******************************
+ * SUMMARY INFORMATION
+ ******************************/
+#environment td {
+  padding: 5px;
+  border: 1px solid #E6E6E6;
+}
+#environment tr:nth-child(odd) {
+  background-color: #f6f6f6;
+}
+
+/******************************
+ * TEST RESULT COLORS
+ ******************************/
+span.passed,
+.passed .col-result {
+  color: green;
+}
+
+span.skipped,
+span.xfailed,
+span.rerun,
+.skipped .col-result,
+.xfailed .col-result,
+.rerun .col-result {
+  color: orange;
+}
+
+span.error,
+span.failed,
+span.xpassed,
+.error .col-result,
+.failed .col-result,
+.xpassed .col-result {
+  color: red;
+}
+
+/******************************
+ * RESULTS TABLE
+ *
+ * 1. Table Layout
+ * 2. Extra
+ * 3. Sorting items
+ *
+ ******************************/
+/*------------------
+ * 1. Table Layout
+ *------------------*/
+#results-table {
+  border: 1px solid #e6e6e6;
+  color: #999;
+  font-size: 12px;
+  width: 100%;
+}
+#results-table th,
+#results-table td {
+  padding: 5px;
+  border: 1px solid #E6E6E6;
+  text-align: left;
+}
+#results-table th {
+  font-weight: bold;
+}
+
+/*------------------
+ * 2. Extra
+ *------------------*/
+.log {
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
+  color: black;
+  display: block;
+  font-family: "Courier New", Courier, monospace;
+  height: 230px;
+  overflow-y: scroll;
+  padding: 5px;
+  white-space: pre-wrap;
+}
+.log:only-child {
+  height: inherit;
+}
+
+div.image {
+  border: 1px solid #e6e6e6;
+  float: right;
+  height: 240px;
+  margin-left: 5px;
+  overflow: hidden;
+  width: 320px;
+}
+div.image img {
+  width: 320px;
+}
+
+div.video {
+  border: 1px solid #e6e6e6;
+  float: right;
+  height: 240px;
+  margin-left: 5px;
+  overflow: hidden;
+  width: 320px;
+}
+div.video video {
+  overflow: hidden;
+  width: 320px;
+  height: 240px;
+}
+
+.collapsed {
+  display: none;
+}
+
+.expander::after {
+  content: " (show details)";
+  color: #BBB;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.collapser::after {
+  content: " (hide details)";
+  color: #BBB;
+  font-style: italic;
+  cursor: pointer;
+}
+
+/*------------------
+ * 3. Sorting items
+ *------------------*/
+.sortable {
+  cursor: pointer;
+}
+
+.sort-icon {
+  font-size: 0px;
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px;
+  /*triangle*/
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+.inactive .sort-icon {
+  /*finish triangle*/
+  border-top: 8px solid #E6E6E6;
+}
+.asc.active .sort-icon {
+  /*finish triangle*/
+  border-bottom: 8px solid #999;
+}
+.desc.active .sort-icon {
+  /*finish triangle*/
+  border-top: 8px solid #999;
+}
+</style></head>
+  <body onLoad="init()">
+    <script>/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+
+function toArray(iter) {
+    if (iter === null) {
+        return null;
+    }
+    return Array.prototype.slice.call(iter);
+}
+
+function find(selector, elem) { // eslint-disable-line no-redeclare
+    if (!elem) {
+        elem = document;
+    }
+    return elem.querySelector(selector);
+}
+
+function findAll(selector, elem) {
+    if (!elem) {
+        elem = document;
+    }
+    return toArray(elem.querySelectorAll(selector));
+}
+
+function sortColumn(elem) {
+    toggleSortStates(elem);
+    const colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
+    let key;
+    if (elem.classList.contains('result')) {
+        key = keyResult;
+    } else if (elem.classList.contains('links')) {
+        key = keyLink;
+    } else {
+        key = keyAlpha;
+    }
+    sortTable(elem, key(colIndex));
+}
+
+function showAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(showExtras);
+}
+
+function hideAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(hideExtras);
+}
+
+function showExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.remove('collapsed');
+    expandcollapse.classList.remove('expander');
+    expandcollapse.classList.add('collapser');
+}
+
+function hideExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
+    extras.classList.add('collapsed');
+    expandcollapse.classList.remove('collapser');
+    expandcollapse.classList.add('expander');
+}
+
+function showFilters() {
+    let visibleString = getQueryParameter('visible') || 'all';
+    visibleString = visibleString.toLowerCase();
+    const checkedItems = visibleString.split(',');
+
+    const filterItems = document.getElementsByClassName('filter');
+    for (let i = 0; i < filterItems.length; i++) {
+        filterItems[i].hidden = false;
+
+        if (visibleString != 'all') {
+            filterItems[i].checked = checkedItems.includes(filterItems[i].getAttribute('data-test-result'));
+            filterTable(filterItems[i]);
+        }
+    }
+}
+
+function addCollapse() {
+    // Add links for show/hide all
+    const resulttable = find('table#results-table');
+    const showhideall = document.createElement('p');
+    showhideall.innerHTML = '<a href="javascript:showAllExtras()">Show all details</a> / ' +
+                            '<a href="javascript:hideAllExtras()">Hide all details</a>';
+    resulttable.parentElement.insertBefore(showhideall, resulttable);
+
+    // Add show/hide link to each result
+    findAll('.col-result').forEach(function(elem) {
+        const collapsed = getQueryParameter('collapsed') || 'Passed';
+        const extras = elem.parentNode.nextElementSibling;
+        const expandcollapse = document.createElement('span');
+        if (extras.classList.contains('collapsed')) {
+            expandcollapse.classList.add('expander');
+        } else if (collapsed.includes(elem.innerHTML)) {
+            extras.classList.add('collapsed');
+            expandcollapse.classList.add('expander');
+        } else {
+            expandcollapse.classList.add('collapser');
+        }
+        elem.appendChild(expandcollapse);
+
+        elem.addEventListener('click', function(event) {
+            if (event.currentTarget.parentNode.nextElementSibling.classList.contains('collapsed')) {
+                showExtras(event.currentTarget);
+            } else {
+                hideExtras(event.currentTarget);
+            }
+        });
+    });
+}
+
+function getQueryParameter(name) {
+    const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+function init () { // eslint-disable-line no-unused-vars
+    resetSortHeaders();
+
+    addCollapse();
+
+    showFilters();
+
+    sortColumn(find('.initial-sort'));
+
+    findAll('.sortable').forEach(function(elem) {
+        elem.addEventListener('click',
+            function() {
+                sortColumn(elem);
+            }, false);
+    });
+}
+
+function sortTable(clicked, keyFunc) {
+    const rows = findAll('.results-table-row');
+    const reversed = !clicked.classList.contains('asc');
+    const sortedRows = sort(rows, keyFunc, reversed);
+    /* Whole table is removed here because browsers acts much slower
+     * when appending existing elements.
+     */
+    const thead = document.getElementById('results-table-head');
+    document.getElementById('results-table').remove();
+    const parent = document.createElement('table');
+    parent.id = 'results-table';
+    parent.appendChild(thead);
+    sortedRows.forEach(function(elem) {
+        parent.appendChild(elem);
+    });
+    document.getElementsByTagName('BODY')[0].appendChild(parent);
+}
+
+function sort(items, keyFunc, reversed) {
+    const sortArray = items.map(function(item, i) {
+        return [keyFunc(item), i];
+    });
+
+    sortArray.sort(function(a, b) {
+        const keyA = a[0];
+        const keyB = b[0];
+
+        if (keyA == keyB) return 0;
+
+        if (reversed) {
+            return keyA < keyB ? 1 : -1;
+        } else {
+            return keyA > keyB ? 1 : -1;
+        }
+    });
+
+    return sortArray.map(function(item) {
+        const index = item[1];
+        return items[index];
+    });
+}
+
+function keyAlpha(colIndex) {
+    return function(elem) {
+        return elem.childNodes[1].childNodes[colIndex].firstChild.data.toLowerCase();
+    };
+}
+
+function keyLink(colIndex) {
+    return function(elem) {
+        const dataCell = elem.childNodes[1].childNodes[colIndex].firstChild;
+        return dataCell == null ? '' : dataCell.innerText.toLowerCase();
+    };
+}
+
+function keyResult(colIndex) {
+    return function(elem) {
+        const strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
+            'Skipped', 'Passed'];
+        return strings.indexOf(elem.childNodes[1].childNodes[colIndex].firstChild.data);
+    };
+}
+
+function resetSortHeaders() {
+    findAll('.sort-icon').forEach(function(elem) {
+        elem.parentNode.removeChild(elem);
+    });
+    findAll('.sortable').forEach(function(elem) {
+        const icon = document.createElement('div');
+        icon.className = 'sort-icon';
+        icon.textContent = 'vvv';
+        elem.insertBefore(icon, elem.firstChild);
+        elem.classList.remove('desc', 'active');
+        elem.classList.add('asc', 'inactive');
+    });
+}
+
+function toggleSortStates(elem) {
+    //if active, toggle between asc and desc
+    if (elem.classList.contains('active')) {
+        elem.classList.toggle('asc');
+        elem.classList.toggle('desc');
+    }
+
+    //if inactive, reset all other functions and add ascending active
+    if (elem.classList.contains('inactive')) {
+        resetSortHeaders();
+        elem.classList.remove('inactive');
+        elem.classList.add('active');
+    }
+}
+
+function isAllRowsHidden(value) {
+    return value.hidden == false;
+}
+
+function filterTable(elem) { // eslint-disable-line no-unused-vars
+    const outcomeAtt = 'data-test-result';
+    const outcome = elem.getAttribute(outcomeAtt);
+    const classOutcome = outcome + ' results-table-row';
+    const outcomeRows = document.getElementsByClassName(classOutcome);
+
+    for(let i = 0; i < outcomeRows.length; i++){
+        outcomeRows[i].hidden = !elem.checked;
+    }
+
+    const rows = findAll('.results-table-row').filter(isAllRowsHidden);
+    const allRowsHidden = rows.length == 0 ? true : false;
+    const notFoundMessage = document.getElementById('not-found-message');
+    notFoundMessage.hidden = !allRowsHidden;
+}
+</script>
+    <h1>Backend Specific Essential APIs!</h1>
+    <p>Report generated on 12-Jan-2023 at 15:46:48 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <h2>Environment</h2>
+    <table id="environment">
+      <tr>
+        <td>Base URL</td>
+        <td><a href="https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/" target="_blank">https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/</a></td></tr>
+      <tr>
+        <td>Email</td>
+        <td>N/A</td></tr>
+      <tr>
+        <td>JAVA_HOME</td>
+        <td>C:\Program Files (x86)\Java\jre1.8.0_351;C:\Program Files (x86)\Java\jre1.8.0_351\bin;C:\Program Files (x86)\Java\</td></tr>
+      <tr>
+        <td>Packages</td>
+        <td>{"pluggy": "1.0.0", "pytest": "7.2.0"}</td></tr>
+      <tr>
+        <td>Platform</td>
+        <td>Windows-10-10.0.22621-SP0</td></tr>
+      <tr>
+        <td>Plugins</td>
+        <td>{"base-url": "2.0.0", "dependency": "0.5.1", "html": "3.2.0", "loop": "1.0.6", "metadata": "2.0.4", "order": "1.0.1", "ordering": "0.6", "parallel": "0.1.1", "playwright": "0.3.0", "xdist": "3.0.2"}</td></tr>
+      <tr>
+        <td>Python</td>
+        <td>3.10.5</td></tr>
+      <tr>
+        <td>SmartWealth Environment</td>
+        <td>UAT INTERNAL</td></tr></table>
+    <h2>Summary</h2>
+    <p>24 tests ran in 30.58 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">24 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <h2>Results</h2>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable result initial-sort" col="result">Result</th>
+          <th>Description</th>
+          <th>Testcase</th>
+          <th class="sortable" col="duration">Duration</th>
+          <th>URL</th></tr>
+        <tr hidden="true" id="not-found-message">
+          <th colspan="5">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>default</td>
+          <td></td>
+          <td class="col-duration">0.67</td>
+          <td>www.google.com</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_info</td>
+          <td class="col-duration">0.77</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/info</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/info
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+        &quot;email&quot;: &quot;roy.braish+testisbackend30@neo.ae&quot;,
+        &quot;name&quot;: &quot;Create User Backend Automation Script&quot;,
+        &quot;civil_id&quot;: &quot;521125273533&quot;,
+        &quot;civil_id_expiry_date&quot;: &quot;12/08/2026&quot;,
+        &quot;serial_id&quot;: &quot;1234567890&quot;,
+        &quot;date_of_birth&quot;: &quot;09/06/1996&quot;,
+        &quot;phone_number&quot;: &quot;+96559226334&quot;,
+        &quot;nationality&quot;: &quot;KW&quot;,
+        &quot;id_manually_uploaded&quot;: &quot;True&quot;,
+        &quot;secondaryID_file_type&quot;: &quot;Passport&quot;,
+        &quot;secondaryID_file_country&quot;: &quot;KW&quot;,
+        &quot;has_video&quot;: false,
+        &quot;source_civil_id&quot;: &quot;manually&quot;,
+        &quot;has_secondary_id&quot;: false,
+        &quot;risk_level&quot;: null,
+        &quot;kyc_expiry_date&quot;: null
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_summary</td>
+          <td class="col-duration">2.68</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/summary</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/summary
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;nav&quot;: 39600.0,
+        &quot;etf_portfolios_nav&quot;: 39600.0,
+        &quot;deposits&quot;: 36000.0,
+        &quot;withdrawals&quot;: 0.0,
+        &quot;management_fee&quot;: null,
+        &quot;return&quot;: 10.0,
+        &quot;portfolios&quot;: 3.0,
+        &quot;original_risk_score&quot;: 7.0,
+        &quot;modified_risk_score&quot;: 3.0,
+        &quot;base_risk_score&quot;: 10.0,
+        &quot;user_type&quot;: &quot;REGULAR&quot;,
+        &quot;is_black&quot;: false,
+        &quot;client_classification&quot;: &quot;qualified&quot;,
+        &quot;is_classification_confirmed&quot;: true,
+        &quot;investment_reason&quot;: &quot;&quot;
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_status</td>
+          <td class="col-duration">1.22</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/status</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/status
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;status&quot;: &quot;ACTIVE&quot;,
+        &quot;status_date&quot;: &quot;&quot;,
+        &quot;show_approve&quot;: false,
+        &quot;can_approve&quot;: true,
+        &quot;show_reject&quot;: false,
+        &quot;can_reject&quot;: false,
+        &quot;show_move_to_fund&quot;: false,
+        &quot;show_archive&quot;: false,
+        &quot;can_archive&quot;: false,
+        &quot;show_reactivate&quot;: false,
+        &quot;can_reactivate&quot;: false,
+        &quot;show_flag&quot;: true,
+        &quot;can_flag&quot;: true,
+        &quot;can_delete_contract&quot;: false,
+        &quot;show_delete_contract&quot;: false
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_kyc_cid_status</td>
+          <td class="col-duration">0.59</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/kyc-cid-status</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/kyc-cid-status
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;kyc&quot;: {
+            &quot;status&quot;: &quot;n/a&quot;,
+            &quot;expiry_date&quot;: &quot;&quot;
+        },
+        &quot;cid&quot;: {
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;expiry_date&quot;: &quot;12-08-2026&quot;
+        }
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_notes</td>
+          <td class="col-duration">0.66</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/notes</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/notes
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;data&quot;: []
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_bank</td>
+          <td class="col-duration">0.83</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/bank</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/bank
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;iban_number&quot;: null,
+        &quot;bank_name&quot;: &quot;al_ahli&quot;,
+        &quot;is_nbk_client&quot;: false,
+        &quot;id&quot;: &quot;8f55a8fc-60d5-45e0-a98d-b0c31a7fce42&quot;
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_steps</td>
+          <td class="col-duration">1.30</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/steps</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/steps
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;fields&quot;: [
+            {
+                &quot;label&quot;: &quot;paci&quot;,
+                &quot;date&quot;: &quot;none&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;world_check&quot;,
+                &quot;date&quot;: &quot;none&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;pep&quot;,
+                &quot;date&quot;: &quot;none&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;country&quot;,
+                &quot;date&quot;: &quot;none&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;employment&quot;,
+                &quot;date&quot;: &quot;none&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;kyc&quot;,
+                &quot;date&quot;: &quot;2022-11-23 10:56:25.802783&quot;,
+                &quot;type&quot;: &quot;auto&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;cleared&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;cid&quot;,
+                &quot;date&quot;: &quot;2022-11-23 10:56:17.929819&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;contract&quot;,
+                &quot;date&quot;: &quot;n/a&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;google_check&quot;,
+                &quot;date&quot;: &quot;n/a&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;team_lead_approval&quot;,
+                &quot;date&quot;: &quot;n/a&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            },
+            {
+                &quot;label&quot;: &quot;dceo_approval&quot;,
+                &quot;date&quot;: &quot;n/a&quot;,
+                &quot;type&quot;: &quot;manual&quot;,
+                &quot;risk&quot;: &quot;n/a&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;is_required&quot;: true
+            }
+        ],
+        &quot;documents&quot;: [
+            {
+                &quot;name&quot;: &quot;google_check&quot;,
+                &quot;documents&quot;: [
+                    {
+                        &quot;label&quot;: &quot;google_corruption_check&quot;,
+                        &quot;name&quot;: &quot;&quot;,
+                        &quot;content_type&quot;: &quot;&quot;,
+                        &quot;url&quot;: &quot;&quot;,
+                        &quot;created_at&quot;: &quot;&quot;
+                    },
+                    {
+                        &quot;label&quot;: &quot;google_court_check&quot;,
+                        &quot;name&quot;: &quot;&quot;,
+                        &quot;content_type&quot;: &quot;&quot;,
+                        &quot;url&quot;: &quot;&quot;,
+                        &quot;created_at&quot;: &quot;&quot;
+                    },
+                    {
+                        &quot;label&quot;: &quot;google_money_laundering_check&quot;,
+                        &quot;name&quot;: &quot;&quot;,
+                        &quot;content_type&quot;: &quot;&quot;,
+                        &quot;url&quot;: &quot;&quot;,
+                        &quot;created_at&quot;: &quot;&quot;
+                    },
+                    {
+                        &quot;label&quot;: &quot;google_risk_matrix&quot;,
+                        &quot;name&quot;: &quot;&quot;,
+                        &quot;content_type&quot;: &quot;&quot;,
+                        &quot;url&quot;: &quot;&quot;,
+                        &quot;created_at&quot;: &quot;&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;team_lead_approval&quot;,
+                &quot;documents&quot;: [
+                    {
+                        &quot;label&quot;: &quot;team_lead_approval&quot;,
+                        &quot;name&quot;: &quot;&quot;,
+                        &quot;content_type&quot;: &quot;&quot;,
+                        &quot;url&quot;: &quot;&quot;,
+                        &quot;created_at&quot;: &quot;&quot;
+                    }
+                ]
+            },
+            {
+                &quot;name&quot;: &quot;dceo_approval&quot;,
+                &quot;documents&quot;: [
+                    {
+                        &quot;label&quot;: &quot;dceo_approval&quot;,
+                        &quot;name&quot;: &quot;&quot;,
+                        &quot;content_type&quot;: &quot;&quot;,
+                        &quot;url&quot;: &quot;&quot;,
+                        &quot;created_at&quot;: &quot;&quot;
+                    }
+                ]
+            }
+        ],
+        &quot;user_risk&quot;: &quot;n/a&quot;
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_portfolios_investment_type_etf</td>
+          <td class="col-duration">1.79</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/portfolios?investment_type=etf</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; &#x27;https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/portfolios?investment_type=etf&#x27;
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;fund_code&quot;: &quot;GENERAL&quot;,
+                &quot;nav&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;original_risk_score&quot;: 7.0,
+                &quot;modified_risk_score&quot;: 7.0,
+                &quot;name&quot;: &quot;etf&quot;,
+                &quot;status&quot;: &quot;Invested&quot;,
+                &quot;last_deposit_currency&quot;: &quot;USD&quot;,
+                &quot;base_risk_score&quot;: 10.0,
+                &quot;last_deposit_amount&quot;: 5000.0,
+                &quot;last_deposit_request_date&quot;: &quot;2022-11-23 10:57:31.169363&quot;,
+                &quot;management_fee_in_account_currency&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;account_number&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;investment_type&quot;: &quot;islamic&quot;,
+                &quot;fund_code&quot;: &quot;GENERAL&quot;,
+                &quot;nav&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;original_risk_score&quot;: 7.0,
+                &quot;modified_risk_score&quot;: 3.0,
+                &quot;name&quot;: &quot;Islamic &quot;,
+                &quot;status&quot;: &quot;Invested&quot;,
+                &quot;last_deposit_currency&quot;: &quot;USD&quot;,
+                &quot;base_risk_score&quot;: 3.0,
+                &quot;last_deposit_amount&quot;: 5000.0,
+                &quot;last_deposit_request_date&quot;: &quot;2022-11-23 10:57:16.256379&quot;,
+                &quot;management_fee_in_account_currency&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;account_number&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;fund_code&quot;: null,
+                &quot;nav&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;original_risk_score&quot;: 7.0,
+                &quot;modified_risk_score&quot;: 3.0,
+                &quot;name&quot;: &quot;General&quot;,
+                &quot;status&quot;: &quot;Invested&quot;,
+                &quot;last_deposit_currency&quot;: &quot;USD&quot;,
+                &quot;base_risk_score&quot;: 10.0,
+                &quot;last_deposit_amount&quot;: 5000.0,
+                &quot;last_deposit_request_date&quot;: &quot;2022-11-23 10:56:56.795046&quot;,
+                &quot;management_fee_in_account_currency&quot;: null
+            }
+        ]
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_portfolios_investment_type_mmf</td>
+          <td class="col-duration">0.64</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/portfolios?investment_type=mmf</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; &#x27;https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/portfolios?investment_type=mmf&#x27;
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;data&quot;: []
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_funds</td>
+          <td class="col-duration">3.76</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/funds</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/funds
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: &quot;5a7338e0-953b-437e-b63a-4b5967ce5041&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;has_saxo_account&quot;: true,
+                &quot;amount&quot;: 12000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;iban&quot;: null,
+                &quot;benifeciary&quot;: null,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;invested&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;needs_action&quot;: false,
+                &quot;needs_notification&quot;: false,
+                &quot;comments&quot;: null,
+                &quot;approval_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;request_id&quot;: &quot;000000&quot;,
+                &quot;transaction_allocation&quot;: &quot;etf&quot;,
+                &quot;investment_status&quot;: &quot;PENDING&quot;,
+                &quot;transaction&quot;: {
+                    &quot;id&quot;: &quot;16e59e25-0e78-4cfa-ba43-3e28df449aa0&quot;,
+                    &quot;investment_type&quot;: &quot;etf&quot;,
+                    &quot;portfolio_name&quot;: &quot;etf&quot;,
+                    &quot;portfolio_nav&quot;: 13200.0,
+                    &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                    &quot;frequency_type&quot;: null,
+                    &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                    &quot;portfolio_risk_score&quot;: &quot;7&quot;,
+                    &quot;amount&quot;: 12000.0,
+                    &quot;currency&quot;: &quot;USD&quot;,
+                    &quot;purpose&quot;: null,
+                    &quot;benifeciary&quot;: &quot;Neo Sales&quot;,
+                    &quot;iban&quot;: &quot;1045112932&quot;,
+                    &quot;creation_date&quot;: &quot;2022-11-23 10:57:24.676593&quot;,
+                    &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                    &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                    &quot;account_number_saxo&quot;: null,
+                    &quot;status&quot;: null,
+                    &quot;request_id&quot;: &quot;000000&quot;,
+                    &quot;bank_name&quot;: null,
+                    &quot;iban_number&quot;: null
+                }
+            },
+            {
+                &quot;id&quot;: &quot;8dc8fa79-b871-42cc-91a7-7abdb3dae06b&quot;,
+                &quot;investment_type&quot;: &quot;islamic&quot;,
+                &quot;portfolio_name&quot;: &quot;Islamic &quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;has_saxo_account&quot;: true,
+                &quot;amount&quot;: 12000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;iban&quot;: null,
+                &quot;benifeciary&quot;: null,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;invested&quot;,
+                &quot;account_number&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;needs_action&quot;: false,
+                &quot;needs_notification&quot;: false,
+                &quot;comments&quot;: null,
+                &quot;approval_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;request_id&quot;: &quot;000000&quot;,
+                &quot;transaction_allocation&quot;: &quot;etf&quot;,
+                &quot;investment_status&quot;: &quot;PENDING&quot;,
+                &quot;transaction&quot;: {
+                    &quot;id&quot;: &quot;1bf07b0d-058c-49aa-9619-2e6ac4ffba43&quot;,
+                    &quot;investment_type&quot;: &quot;islamic&quot;,
+                    &quot;portfolio_name&quot;: &quot;Islamic &quot;,
+                    &quot;portfolio_nav&quot;: 13200.0,
+                    &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                    &quot;frequency_type&quot;: null,
+                    &quot;portfolio_id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                    &quot;portfolio_risk_score&quot;: &quot;3&quot;,
+                    &quot;amount&quot;: 12000.0,
+                    &quot;currency&quot;: &quot;USD&quot;,
+                    &quot;purpose&quot;: null,
+                    &quot;benifeciary&quot;: &quot;Neo Sales&quot;,
+                    &quot;iban&quot;: &quot;1045112932&quot;,
+                    &quot;creation_date&quot;: &quot;2022-11-23 10:57:11.966687&quot;,
+                    &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                    &quot;account_number&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                    &quot;account_number_saxo&quot;: null,
+                    &quot;status&quot;: null,
+                    &quot;request_id&quot;: &quot;000000&quot;,
+                    &quot;bank_name&quot;: null,
+                    &quot;iban_number&quot;: null
+                }
+            },
+            {
+                &quot;id&quot;: &quot;f04ec414-c636-41be-926d-58bd68083205&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;General&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;has_saxo_account&quot;: true,
+                &quot;amount&quot;: 12000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;iban&quot;: null,
+                &quot;benifeciary&quot;: null,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;invested&quot;,
+                &quot;account_number&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;needs_action&quot;: false,
+                &quot;needs_notification&quot;: false,
+                &quot;comments&quot;: null,
+                &quot;approval_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;request_id&quot;: &quot;000000&quot;,
+                &quot;transaction_allocation&quot;: &quot;etf&quot;,
+                &quot;investment_status&quot;: &quot;PENDING&quot;,
+                &quot;transaction&quot;: {
+                    &quot;id&quot;: &quot;86848451-5e90-4968-8343-e3af805a2261&quot;,
+                    &quot;investment_type&quot;: &quot;etf&quot;,
+                    &quot;portfolio_name&quot;: &quot;General&quot;,
+                    &quot;portfolio_nav&quot;: 13200.0,
+                    &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                    &quot;frequency_type&quot;: null,
+                    &quot;portfolio_id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                    &quot;portfolio_risk_score&quot;: &quot;3&quot;,
+                    &quot;amount&quot;: 12000.0,
+                    &quot;currency&quot;: &quot;USD&quot;,
+                    &quot;purpose&quot;: null,
+                    &quot;benifeciary&quot;: &quot;Neo Sales&quot;,
+                    &quot;iban&quot;: null,
+                    &quot;creation_date&quot;: &quot;2022-11-23 10:56:47.468422&quot;,
+                    &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                    &quot;account_number&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                    &quot;account_number_saxo&quot;: null,
+                    &quot;status&quot;: null,
+                    &quot;request_id&quot;: &quot;000000&quot;,
+                    &quot;bank_name&quot;: null,
+                    &quot;iban_number&quot;: null
+                }
+            }
+        ],
+        &quot;portfolios&quot;: [
+            {
+                &quot;id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;fund_code&quot;: &quot;GENERAL&quot;,
+                &quot;nav&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;original_risk_score&quot;: 7.0,
+                &quot;modified_risk_score&quot;: 7.0,
+                &quot;name&quot;: &quot;etf&quot;,
+                &quot;status&quot;: &quot;Invested&quot;,
+                &quot;last_deposit_currency&quot;: &quot;USD&quot;,
+                &quot;base_risk_score&quot;: 10.0,
+                &quot;last_deposit_amount&quot;: 5000.0,
+                &quot;last_deposit_request_date&quot;: &quot;2022-11-23 10:57:31.169363&quot;,
+                &quot;management_fee_in_account_currency&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;account_number&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;investment_type&quot;: &quot;islamic&quot;,
+                &quot;fund_code&quot;: &quot;GENERAL&quot;,
+                &quot;nav&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;original_risk_score&quot;: 7.0,
+                &quot;modified_risk_score&quot;: 3.0,
+                &quot;name&quot;: &quot;Islamic &quot;,
+                &quot;status&quot;: &quot;Invested&quot;,
+                &quot;last_deposit_currency&quot;: &quot;USD&quot;,
+                &quot;base_risk_score&quot;: 3.0,
+                &quot;last_deposit_amount&quot;: 5000.0,
+                &quot;last_deposit_request_date&quot;: &quot;2022-11-23 10:57:16.256379&quot;,
+                &quot;management_fee_in_account_currency&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;account_number&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;fund_code&quot;: null,
+                &quot;nav&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;original_risk_score&quot;: 7.0,
+                &quot;modified_risk_score&quot;: 3.0,
+                &quot;name&quot;: &quot;General&quot;,
+                &quot;status&quot;: &quot;Invested&quot;,
+                &quot;last_deposit_currency&quot;: &quot;USD&quot;,
+                &quot;base_risk_score&quot;: 10.0,
+                &quot;last_deposit_amount&quot;: 5000.0,
+                &quot;last_deposit_request_date&quot;: &quot;2022-11-23 10:56:56.795046&quot;,
+                &quot;management_fee_in_account_currency&quot;: null
+            }
+        ],
+        &quot;deposits&quot;: [
+            {
+                &quot;id&quot;: &quot;063b88d1-e429-4022-b8d8-79810c2a5f9e&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: null,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;portfolio_risk_score&quot;: &quot;7&quot;,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;2022-11-23 10:57:31.169363&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;account_number_saxo&quot;: null,
+                &quot;status&quot;: null,
+                &quot;request_id&quot;: &quot;SWETFID067860&quot;,
+                &quot;bank_name&quot;: null,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;0929df17-7898-4943-893c-81ad4d2cb328&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: null,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;portfolio_risk_score&quot;: &quot;7&quot;,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;2022-11-23 10:57:23.525643&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;account_number_saxo&quot;: null,
+                &quot;status&quot;: null,
+                &quot;request_id&quot;: &quot;SWETFID067859&quot;,
+                &quot;bank_name&quot;: null,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;6b252d10-9e2c-400d-b8ce-10cd7e58ff95&quot;,
+                &quot;investment_type&quot;: &quot;islamic&quot;,
+                &quot;portfolio_name&quot;: &quot;Islamic &quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: null,
+                &quot;portfolio_id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;portfolio_risk_score&quot;: &quot;3&quot;,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;2022-11-23 10:57:16.256379&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;account_number_saxo&quot;: null,
+                &quot;status&quot;: null,
+                &quot;request_id&quot;: &quot;SWETFID067858&quot;,
+                &quot;bank_name&quot;: null,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;e00be3cd-9e9d-4ca6-b2da-f7cdc9f4a52d&quot;,
+                &quot;investment_type&quot;: &quot;islamic&quot;,
+                &quot;portfolio_name&quot;: &quot;Islamic &quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: null,
+                &quot;portfolio_id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;portfolio_risk_score&quot;: &quot;3&quot;,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;2022-11-23 10:57:10.854372&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;account_number_saxo&quot;: null,
+                &quot;status&quot;: null,
+                &quot;request_id&quot;: &quot;SWETFID067857&quot;,
+                &quot;bank_name&quot;: null,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;27e4c778-fd88-41f2-81ec-d0c532f95bf9&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;General&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: null,
+                &quot;portfolio_id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;portfolio_risk_score&quot;: &quot;3&quot;,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;2022-11-23 10:56:56.795046&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;account_number_saxo&quot;: null,
+                &quot;status&quot;: null,
+                &quot;request_id&quot;: &quot;SWETFID067856&quot;,
+                &quot;bank_name&quot;: null,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;3d47be55-bf00-4571-a5f9-a38bc1f87c74&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;General&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: null,
+                &quot;portfolio_id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;portfolio_risk_score&quot;: &quot;3&quot;,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;2022-11-23 10:56:46.362778&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;account_number_saxo&quot;: null,
+                &quot;status&quot;: null,
+                &quot;request_id&quot;: &quot;SWETFID067855&quot;,
+                &quot;bank_name&quot;: null,
+                &quot;iban_number&quot;: null
+            }
+        ]
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_deposits</td>
+          <td class="col-duration">1.91</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/deposits</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/deposits
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: &quot;063b88d1-e429-4022-b8d8-79810c2a5f9e&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: &quot;0&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;portfolio_risk_score&quot;: null,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;1045112932&quot;,
+                &quot;account_number_saxo&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;request_id&quot;: &quot;SWETFID067860&quot;,
+                &quot;bank_name&quot;: &quot;al_ahli&quot;,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;16e59e25-0e78-4cfa-ba43-3e28df449aa0&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: &quot;1&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;portfolio_risk_score&quot;: null,
+                &quot;amount&quot;: 12000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;Neo Sales&quot;,
+                &quot;iban&quot;: &quot;&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;&quot;,
+                &quot;account_number_saxo&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;status&quot;: &quot;approved&quot;,
+                &quot;request_id&quot;: &quot;000000&quot;,
+                &quot;bank_name&quot;: &quot;&quot;,
+                &quot;iban_number&quot;: &quot;&quot;
+            },
+            {
+                &quot;id&quot;: &quot;0929df17-7898-4943-893c-81ad4d2cb328&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: &quot;0&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;portfolio_risk_score&quot;: null,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;1045112932&quot;,
+                &quot;account_number_saxo&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;request_id&quot;: &quot;SWETFID067859&quot;,
+                &quot;bank_name&quot;: &quot;al_ahli&quot;,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;6b252d10-9e2c-400d-b8ce-10cd7e58ff95&quot;,
+                &quot;investment_type&quot;: &quot;islamic&quot;,
+                &quot;portfolio_name&quot;: &quot;Islamic &quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: &quot;0&quot;,
+                &quot;portfolio_id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;portfolio_risk_score&quot;: null,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;1045112932&quot;,
+                &quot;account_number_saxo&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;request_id&quot;: &quot;SWETFID067858&quot;,
+                &quot;bank_name&quot;: &quot;al_ahli&quot;,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;1bf07b0d-058c-49aa-9619-2e6ac4ffba43&quot;,
+                &quot;investment_type&quot;: &quot;islamic&quot;,
+                &quot;portfolio_name&quot;: &quot;Islamic &quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: &quot;1&quot;,
+                &quot;portfolio_id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;portfolio_risk_score&quot;: null,
+                &quot;amount&quot;: 12000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;Neo Sales&quot;,
+                &quot;iban&quot;: &quot;&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;&quot;,
+                &quot;account_number_saxo&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;status&quot;: &quot;approved&quot;,
+                &quot;request_id&quot;: &quot;000000&quot;,
+                &quot;bank_name&quot;: &quot;&quot;,
+                &quot;iban_number&quot;: &quot;&quot;
+            },
+            {
+                &quot;id&quot;: &quot;e00be3cd-9e9d-4ca6-b2da-f7cdc9f4a52d&quot;,
+                &quot;investment_type&quot;: &quot;islamic&quot;,
+                &quot;portfolio_name&quot;: &quot;Islamic &quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: &quot;0&quot;,
+                &quot;portfolio_id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;portfolio_risk_score&quot;: null,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;1045112932&quot;,
+                &quot;account_number_saxo&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;request_id&quot;: &quot;SWETFID067857&quot;,
+                &quot;bank_name&quot;: &quot;al_ahli&quot;,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;27e4c778-fd88-41f2-81ec-d0c532f95bf9&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;General&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: &quot;0&quot;,
+                &quot;portfolio_id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;portfolio_risk_score&quot;: null,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;1045112932&quot;,
+                &quot;account_number_saxo&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;request_id&quot;: &quot;SWETFID067856&quot;,
+                &quot;bank_name&quot;: &quot;al_ahli&quot;,
+                &quot;iban_number&quot;: null
+            },
+            {
+                &quot;id&quot;: &quot;86848451-5e90-4968-8343-e3af805a2261&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;General&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: &quot;1&quot;,
+                &quot;portfolio_id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;portfolio_risk_score&quot;: null,
+                &quot;amount&quot;: 12000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;Neo Sales&quot;,
+                &quot;iban&quot;: &quot;&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;&quot;,
+                &quot;account_number_saxo&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;status&quot;: &quot;approved&quot;,
+                &quot;request_id&quot;: &quot;000000&quot;,
+                &quot;bank_name&quot;: &quot;&quot;,
+                &quot;iban_number&quot;: &quot;&quot;
+            },
+            {
+                &quot;id&quot;: &quot;3d47be55-bf00-4571-a5f9-a38bc1f87c74&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;General&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;frequency_type&quot;: &quot;0&quot;,
+                &quot;portfolio_id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;portfolio_risk_score&quot;: null,
+                &quot;amount&quot;: 5000.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: null,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: null,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;account_number&quot;: &quot;1045112932&quot;,
+                &quot;account_number_saxo&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;request_id&quot;: &quot;SWETFID067855&quot;,
+                &quot;bank_name&quot;: &quot;al_ahli&quot;,
+                &quot;iban_number&quot;: null
+            }
+        ]
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_withdrawals</td>
+          <td class="col-duration">2.03</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/withdrawals</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/withdrawals
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: &quot;46dbad4a-fe2f-4a66-8bf2-63b73beb5d39&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;amount&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Loan repayment&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;02 Dec 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;b5a12e43-e686-41fb-9e39-df30d5d9e8e3&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;amount&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Investing long term is not for me&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;01 Dec 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;6131f662-2f5f-4a1e-88dc-fe5c0de56d88&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;amount&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Retirement income&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;01 Dec 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;58c388fb-095d-4e22-8c89-4a7d5b5c8965&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;amount&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Retirement income&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;29 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;c10ee13e-6e96-4f55-8fe9-13cc21226bd5&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;amount&quot;: 50.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Emergency (car maintenance, medical bills)&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;29 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;d73900e3-9c7d-487b-b1cb-9e9658688b89&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;amount&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Investing long term is not for me&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;29 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;d48c743e-0ecd-46d0-8f2d-ecd5408b44d6&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;amount&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Retirement income&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;29 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;66ffb2dd-0093-4bf8-998b-3bf1a9df1fb8&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;etf&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;amount&quot;: 200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Investing long term is not for me&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;294fc19e-7955-4057-9f74-8b54eeace291&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;fe170ece-b790-4871-8847-e11e9a498209&quot;,
+                &quot;investment_type&quot;: &quot;islamic&quot;,
+                &quot;portfolio_name&quot;: &quot;Islamic &quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;amount&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Poor portfolio performance&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;afea0b39-f11a-4956-9565-8454ace606b5&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;a00543fc-ab34-4a06-ada2-f8a08f28353d&quot;,
+                &quot;investment_type&quot;: &quot;etf&quot;,
+                &quot;portfolio_name&quot;: &quot;General&quot;,
+                &quot;portfolio_nav&quot;: 13200.0,
+                &quot;portfolio_currency&quot;: &quot;USD&quot;,
+                &quot;portfolio_id&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;amount&quot;: 13200.0,
+                &quot;currency&quot;: &quot;USD&quot;,
+                &quot;purpose&quot;: &quot;Poor portfolio performance&quot;,
+                &quot;benifeciary&quot;: &quot;&quot;,
+                &quot;iban&quot;: &quot;1045112932&quot;,
+                &quot;creation_date&quot;: &quot;23 Nov 2022&quot;,
+                &quot;transfer_method&quot;: &quot;Bank Transfer&quot;,
+                &quot;status&quot;: &quot;pending&quot;,
+                &quot;account_number&quot;: &quot;ef0ed12a-a0d4-47f6-bdcc-842d71a9f207&quot;,
+                &quot;needs_action&quot;: true,
+                &quot;needs_update&quot;: true,
+                &quot;approval_date&quot;: null,
+                &quot;is_full_withdraw&quot;: true
+            }
+        ]
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_banks</td>
+          <td class="col-duration">0.61</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/banks</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/banks
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: &quot;8f55a8fc-60d5-45e0-a98d-b0c31a7fce42&quot;,
+                &quot;bank_name&quot;: &quot;other&quot;,
+                &quot;bank_name_description&quot;: &quot;al_ahli&quot;,
+                &quot;iban_number&quot;: null,
+                &quot;account_number&quot;: &quot;1045112932&quot;,
+                &quot;has_bank_statement&quot;: false,
+                &quot;bank_details&quot;: null,
+                &quot;is_main_bank&quot;: true
+            }
+        ]
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_rm</td>
+          <td class="col-duration">0.51</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/rm/user/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/rm/user/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;id&quot;: null,
+        &quot;email&quot;: null,
+        &quot;full_name&quot;: null,
+        &quot;code&quot;: null
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_address</td>
+          <td class="col-duration">0.61</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/address</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/address
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;address_country&quot;: &quot;Kuwait&quot;,
+        &quot;address_city&quot;: &quot;Farwaniya&quot;,
+        &quot;address_area&quot;: &quot;Reggai&quot;,
+        &quot;address_block&quot;: &quot;55&quot;,
+        &quot;address_street&quot;: &quot;Test&quot;,
+        &quot;address_avenue&quot;: &quot;&quot;,
+        &quot;address_house&quot;: &quot;Test&quot;,
+        &quot;birth_place&quot;: &quot;Australia&quot;,
+        &quot;address_postal_area&quot;: &quot;&quot;,
+        &quot;contact_po_box&quot;: &quot;&quot;,
+        &quot;address_zipcode&quot;: &quot;&quot;
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Admin_user_profile Class ::user_rm_list</td>
+          <td class="col-duration">0.70</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/rm?user_filter_type=all</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; &#x27;https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/rm?user_filter_type=all&#x27;
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;count&quot;: 70,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: &quot;12467f89-309b-49bc-afad-64f8f91ba022&quot;,
+                &quot;email&quot;: &quot;bader.alsayegh+rm@nbkcapitalsmartwealth.com&quot;,
+                &quot;user&quot;: &quot;Bader Alsayegh&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;05 Jan 2023&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B2C9&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;cdec21a2-1816-48b7-8285-e1fd73999c5a&quot;,
+                &quot;email&quot;: &quot;edgard.kallassy+rm21@neo.ae&quot;,
+                &quot;user&quot;: &quot;Edgard kallassy&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;19 Dec 2022&quot;,
+                &quot;code&quot;: &quot;CCEDKE&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;edga&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;1763201a-ba59-4a8e-83ba-3e88a28f3516&quot;,
+                &quot;email&quot;: &quot;nadine.houmaidan+rmnew@neo.ae&quot;,
+                &quot;user&quot;: &quot;nadine hmaidan&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;02 Dec 2022&quot;,
+                &quot;code&quot;: &quot;C1N7H6&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;nadine&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;e57eb1b3-2571-4651-b0fa-1043349b1ac0&quot;,
+                &quot;email&quot;: &quot;Edgard.Kallassy+rm1@neo.ae&quot;,
+                &quot;user&quot;: &quot;Edgard Kallassy&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;01 Dec 2022&quot;,
+                &quot;code&quot;: &quot;CEE5K7&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;Edg123&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;2132dbb0-2754-44e4-a321-90eb74d01036&quot;,
+                &quot;email&quot;: &quot;adham.nasr+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Adham Nasr&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;16 Nov 2022&quot;,
+                &quot;code&quot;: &quot;C2A1N3&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;8&quot;,
+                &quot;officer_code&quot;: &quot;1234&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;4cd963a4-5fa3-47c9-b2b9-3c85dc5933fe&quot;,
+                &quot;email&quot;: &quot;romero.habib+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Romero Habib&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;03 Nov 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;C3B5C8&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;d76dc963-060f-402a-a78c-1ec27ae0656f&quot;,
+                &quot;email&quot;: &quot;rony.riachy+rm1@neo.ae&quot;,
+                &quot;user&quot;: &quot;Rony riachy&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;26 Oct 2022&quot;,
+                &quot;code&quot;: &quot;CDR7R6&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;rony12&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;1f9c4ab6-173c-40d2-887e-b141a94724d7&quot;,
+                &quot;email&quot;: &quot;michael.fares+rm2@neo.ae&quot;,
+                &quot;user&quot;: &quot;Michael Fares&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;26 Oct 2022&quot;,
+                &quot;code&quot;: &quot;C1MFF9&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;7878&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;29b59ea0-0af4-4180-adeb-607bd0b9028f&quot;,
+                &quot;email&quot;: &quot;nadine.houmaidan+rm6@neo.ae&quot;,
+                &quot;user&quot;: &quot;Nadine Hm&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;25 Oct 2022&quot;,
+                &quot;code&quot;: &quot;C2N9HB&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;nadine&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;6bc2ea15-1983-4cf0-a4ad-3265f3f77375&quot;,
+                &quot;email&quot;: &quot;nader.rafeh+rm1@neo.ae&quot;,
+                &quot;user&quot;: &quot;Nader Rafeh&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;17 Oct 2022&quot;,
+                &quot;code&quot;: &quot;C6NBRC&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;2&quot;,
+                &quot;officer_code&quot;: &quot;Nader1&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;1284b030-d9ff-4d4a-a29f-8580f779bfb8&quot;,
+                &quot;email&quot;: &quot;nadine.houmaidan+rm5@neo.ae&quot;,
+                &quot;user&quot;: &quot;Nadine Hm&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;17 Oct 2022&quot;,
+                &quot;code&quot;: &quot;C1N2H8&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;nad123&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;0803922a-dbe6-46c8-855a-91e26b6330c2&quot;,
+                &quot;email&quot;: &quot;roy.braish+rm3@neo.ae&quot;,
+                &quot;user&quot;: &quot;Roy Braish&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Oct 2022&quot;,
+                &quot;code&quot;: &quot;C0R8B0&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A12345&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;ba0d50e2-4e52-4f13-aaa1-41fb127ef047&quot;,
+                &quot;email&quot;: &quot;nadine.houmaidan+rm4@neo.ae&quot;,
+                &quot;user&quot;: &quot;Nadine Hm&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;13 Oct 2022&quot;,
+                &quot;code&quot;: &quot;CBNAH0&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;NADRM1&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;5308c423-8830-44f2-a801-8749bf734f90&quot;,
+                &quot;email&quot;: &quot;neam.farroukh+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Neam Farroukh&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;12 Oct 2022&quot;,
+                &quot;code&quot;: &quot;C5N3F0&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;NEM123&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;9cdc5643-7ab4-40e3-9d2a-6742b36fb215&quot;,
+                &quot;email&quot;: &quot;hussein.ayoub+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;hussein ayubb&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;07 Oct 2022&quot;,
+                &quot;code&quot;: &quot;P9HCAD&quot;,
+                &quot;department&quot;: &quot;PB&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;1232&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;bdb44a31-d046-4b57-8492-d839a5201c14&quot;,
+                &quot;email&quot;: &quot;hussein.ayoub+1@neo.ae&quot;,
+                &quot;user&quot;: &quot;Hussein Ayoub&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;06 Oct 2022&quot;,
+                &quot;code&quot;: &quot;CBHDAB&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;1332&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;0518f7c0-8acf-4dfb-a63d-f9e936318ce9&quot;,
+                &quot;email&quot;: &quot;mahmoud.galal+rm2@nbkcapitalsmartwealth.com&quot;,
+                &quot;user&quot;: &quot;Mahm new RM &quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;20 Sep 2022&quot;,
+                &quot;code&quot;: &quot;CP0M5R1&quot;,
+                &quot;department&quot;: &quot;PBO&quot;,
+                &quot;clients_number&quot;: &quot;1&quot;,
+                &quot;officer_code&quot;: &quot;123456&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;b3c4975e-7a50-44bc-befc-ff558be30b90&quot;,
+                &quot;email&quot;: &quot;upebvpedoovyfi@emergentvillage.org&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;19 Sep 2022&quot;,
+                &quot;code&quot;: &quot;A0B2V3&quot;,
+                &quot;department&quot;: null,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: null,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;b06ac6aa-dc45-496c-9365-e7ef5bce13da&quot;,
+                &quot;email&quot;: &quot;hawraa.alasaad+userbyrm1@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;19 Sep 2022&quot;,
+                &quot;code&quot;: &quot;A9B2V3&quot;,
+                &quot;department&quot;: null,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: null,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;7123009b-311a-44f2-b4de-b42918e3b841&quot;,
+                &quot;email&quot;: &quot;yofogo8448@pahed.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;19 Sep 2022&quot;,
+                &quot;code&quot;: &quot;B5B2V3&quot;,
+                &quot;department&quot;: null,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: null,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;8c75521c-8a10-49d2-83cf-fd8e4df7001d&quot;,
+                &quot;email&quot;: &quot;ronja.niklasson+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Ronja New Rem&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;15 Sep 2022&quot;,
+                &quot;code&quot;: &quot;C8RCR7&quot;,
+                &quot;department&quot;: &quot;CPBG&quot;,
+                &quot;clients_number&quot;: &quot;3&quot;,
+                &quot;officer_code&quot;: &quot;RONRM&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;57bf27e7-3e7d-4e2b-8b4a-d86eac9102b9&quot;,
+                &quot;email&quot;: &quot;salim.edris+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Salim Edris&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;15 Sep 2022&quot;,
+                &quot;code&quot;: &quot;P5S7EB&quot;,
+                &quot;department&quot;: &quot;PB&quot;,
+                &quot;clients_number&quot;: &quot;4&quot;,
+                &quot;officer_code&quot;: &quot;CSM2E1&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;03fdf330-ed78-430e-b1b5-d7f2c8e13c91&quot;,
+                &quot;email&quot;: &quot;nadine.houmaidan+rm3@neo.ae&quot;,
+                &quot;user&quot;: &quot;Nadine Hm&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Sep 2022&quot;,
+                &quot;code&quot;: &quot;C0N3HF&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;11&quot;,
+                &quot;officer_code&quot;: &quot;NAD123&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;9f5f2d10-7c82-4270-abb2-6c763b043def&quot;,
+                &quot;email&quot;: &quot;marwa.riman+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;13 Sep 2022&quot;,
+                &quot;code&quot;: &quot;PB1232&quot;,
+                &quot;department&quot;: &quot;PB&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;48d3bb53-2e3e-4fdb-9151-456b2e934a53&quot;,
+                &quot;email&quot;: &quot;ziad.zouhbi+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;09 Sep 2022&quot;,
+                &quot;code&quot;: &quot;PB1234&quot;,
+                &quot;department&quot;: &quot;PB&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;21b37703-49f6-4e6d-95e1-e181bacaa2f6&quot;,
+                &quot;email&quot;: &quot;khaled+teslarm3@neo.ae&quot;,
+                &quot;user&quot;: &quot;Khaled Ramadan&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;30 Aug 2022&quot;,
+                &quot;code&quot;: &quot;C2K1RB&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;1234&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;d3726980-467d-4c58-8a75-f9a809df9a4e&quot;,
+                &quot;email&quot;: &quot;olav.nordheim+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;26 Aug 2022&quot;,
+                &quot;code&quot;: &quot;CB1231&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;CB1122&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;b634f803-7270-4077-9ff4-463a82f314c3&quot;,
+                &quot;email&quot;: &quot;ali.majed+passwordless@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;19 Aug 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A9B8C4&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;f2642b55-69df-4182-b43b-9b91fe2990ef&quot;,
+                &quot;email&quot;: &quot;mobile+trmhawraa@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;10 Aug 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;ASD341&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;4aeab295-a8ca-4e36-ace7-a0213eb3dd61&quot;,
+                &quot;email&quot;: &quot;mobile+trmbilal@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;10 Aug 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;9&quot;,
+                &quot;officer_code&quot;: &quot;ASD342&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;22be88d4-78be-4b8e-9902-f20091102883&quot;,
+                &quot;email&quot;: &quot;khaled+teslarm2@neo.ae&quot;,
+                &quot;user&quot;: &quot;Khaled Ramadan&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;27 Jul 2022&quot;,
+                &quot;code&quot;: &quot;C2K2RB&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;123345&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;6222757e-dc7e-4a3e-aa18-506174558a4d&quot;,
+                &quot;email&quot;: &quot;rawan.kawtharani+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Rawan Kawtharani&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;18 Jul 2022&quot;,
+                &quot;code&quot;: &quot;C6R2K2&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;RAW123&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;eefa32dd-33d7-47f0-9b7d-3f7e6d5ba11c&quot;,
+                &quot;email&quot;: &quot;michael.fares+rmuser@neo.ae&quot;,
+                &quot;user&quot;: &quot;Michael  Fares&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;08 Jul 2022&quot;,
+                &quot;code&quot;: &quot;CEMEFF&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;MIC123&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;009aa68f-5fa8-4ebd-b765-0e95826e299d&quot;,
+                &quot;email&quot;: &quot;rawan.kawtharani+rmuser@neo.ae&quot;,
+                &quot;user&quot;: &quot;Rawan Kawtharani&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;08 Jul 2022&quot;,
+                &quot;code&quot;: &quot;C0R0K9&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;1&quot;,
+                &quot;officer_code&quot;: &quot;RA123&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;2227418d-24a9-40ef-a9fd-a5377f686ac8&quot;,
+                &quot;email&quot;: &quot;bilal.sleiman+BrmSrm1@neo.ae&quot;,
+                &quot;user&quot;: &quot;Brm Srm&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;08 Jul 2022&quot;,
+                &quot;code&quot;: &quot;C2B2S2&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;1&quot;,
+                &quot;officer_code&quot;: &quot;OB1KNB&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;c059fa81-ff6f-4784-ba0e-8133e7f17d5c&quot;,
+                &quot;email&quot;: &quot;bilal.sleiman+BSRM1@neo.ae&quot;,
+                &quot;user&quot;: &quot;BilalRM SleimanRM&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;06 Jul 2022&quot;,
+                &quot;code&quot;: &quot;CCB0S5&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;1&quot;,
+                &quot;officer_code&quot;: &quot;B0F1S0&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;18458650-3b83-4beb-9115-caf469cb4a10&quot;,
+                &quot;email&quot;: &quot;roy.braish+RM2@neo.ae&quot;,
+                &quot;user&quot;: &quot;Roy Braish&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;29 Jun 2022&quot;,
+                &quot;code&quot;: &quot;P1R8B4&quot;,
+                &quot;department&quot;: &quot;PB&quot;,
+                &quot;clients_number&quot;: &quot;5&quot;,
+                &quot;officer_code&quot;: &quot;B2M4U5&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;8b8c7561-9afa-4fe4-877f-62ede29977ff&quot;,
+                &quot;email&quot;: &quot;chafic.elhariri+rmadmin@neo.ae&quot;,
+                &quot;user&quot;: &quot;Chafic Hariri&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;16 Jun 2022&quot;,
+                &quot;code&quot;: &quot;C8CBH8&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;1&quot;,
+                &quot;officer_code&quot;: &quot;CHAFIC&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;a71a2210-840f-47df-b07e-2b8623758900&quot;,
+                &quot;email&quot;: &quot;mohamad.harb+rmadmin@neo.ae&quot;,
+                &quot;user&quot;: &quot;Mohamad Harb&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;16 Jun 2022&quot;,
+                &quot;code&quot;: &quot;CAM7H1&quot;,
+                &quot;department&quot;: &quot;CPBG&quot;,
+                &quot;clients_number&quot;: &quot;39&quot;,
+                &quot;officer_code&quot;: &quot;ABC123&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;ef48f88b-e583-4ba6-859c-89ba134f4674&quot;,
+                &quot;email&quot;: &quot;hawraa.alasaad+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Hawraa Al Assaad&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;09 Jun 2022&quot;,
+                &quot;code&quot;: &quot;A6B2V3&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;T6Y5V8&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;5e913ea7-2515-4cc4-b05d-fdd0d91422c8&quot;,
+                &quot;email&quot;: &quot;khaled+teslarm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Khaled Ramadan&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;01 Jun 2022&quot;,
+                &quot;code&quot;: &quot;C5KER9&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;3&quot;,
+                &quot;officer_code&quot;: &quot;1234&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;3a508525-2cf8-4bc4-b023-5474247f87ef&quot;,
+                &quot;email&quot;: &quot;yousef.alsayed@nbkcapitalsmartwealth.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;26 May 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B6V5&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;e4bc4b30-6370-4e59-b168-dbb8e2f36cae&quot;,
+                &quot;email&quot;: &quot;abdullah.razooqi@nbkcapital.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;26 May 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B6v3&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;ba27a870-0b07-469f-b139-93de9b590cbe&quot;,
+                &quot;email&quot;: &quot;nadine.houmaidan+rm2@neo.ae&quot;,
+                &quot;user&quot;: &quot;nadine hm&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;24 May 2022&quot;,
+                &quot;code&quot;: &quot;CBNAH2&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;10&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M9&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;d5f3f28c-0ece-4569-8200-268cebdcabec&quot;,
+                &quot;email&quot;: &quot;nadine.houmaidan+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Nadine Houmaidan&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;24 May 2022&quot;,
+                &quot;code&quot;: &quot;CDN5HF&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;2&quot;,
+                &quot;officer_code&quot;: &quot;A1B4M9&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;3201b6b1-dfeb-4121-b057-90cd6adde34d&quot;,
+                &quot;email&quot;: &quot;hawraa.alasaad+rm@neo.ae&quot;,
+                &quot;user&quot;: &quot;Hawraa Alasaad&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;24 May 2022&quot;,
+                &quot;code&quot;: &quot;C3H2A0&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;2&quot;,
+                &quot;officer_code&quot;: &quot;ABC123&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;d91e9d24-cefc-4825-83ef-9f77e433c688&quot;,
+                &quot;email&quot;: &quot;bilal.sleiman+rm1@neo.ae&quot;,
+                &quot;user&quot;: &quot;Bilal Haidar RM&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;19 May 2022&quot;,
+                &quot;code&quot;: &quot;CDB9R1&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;2&quot;,
+                &quot;officer_code&quot;: &quot;123789&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;11c69205-5d0b-471a-98a3-0a6fcf991ea2&quot;,
+                &quot;email&quot;: &quot;petra.ashkar+admin1@neo.ae&quot;,
+                &quot;user&quot;: &quot;Petra Ashkar&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;05 May 2022&quot;,
+                &quot;code&quot;: &quot;C1P1AC&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;15&quot;,
+                &quot;officer_code&quot;: &quot;PET222&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;193d0a74-987c-428f-9c0f-a43d80e6a931&quot;,
+                &quot;email&quot;: &quot;hadi.ramadan+rmuser@neo.ae&quot;,
+                &quot;user&quot;: &quot;Hadi RM&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;28 Apr 2022&quot;,
+                &quot;code&quot;: &quot;C1H9R3&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;17&quot;,
+                &quot;officer_code&quot;: &quot;HAD123&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;d711551e-862a-4beb-8601-eea520872fa7&quot;,
+                &quot;email&quot;: &quot;petra+rmuatuser@neo.ae&quot;,
+                &quot;user&quot;: &quot;Petra RM &quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;28 Apr 2022&quot;,
+                &quot;code&quot;: &quot;CDP7R1&quot;,
+                &quot;department&quot;: &quot;CPBG&quot;,
+                &quot;clients_number&quot;: &quot;2&quot;,
+                &quot;officer_code&quot;: &quot;PET123&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;0888a021-c05d-4302-858a-af453f0856af&quot;,
+                &quot;email&quot;: &quot;mahmoud.galal+rm@nbkcapitalsmartwealth.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;21 Apr 2022&quot;,
+                &quot;code&quot;: &quot;A3B3C3&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A3A3A3&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;933bc154-d7bd-4b0e-b60c-33090a082b6b&quot;,
+                &quot;email&quot;: &quot;laila.jafar+rm@nbkcapitalsmartwealth.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;21 Apr 2022&quot;,
+                &quot;code&quot;: &quot;A1B2C2&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A2A2A2&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;6a82bcdf-70d7-48e5-b38b-8ac5face8e63&quot;,
+                &quot;email&quot;: &quot;remy.mattar+newtestRM@neo.ae&quot;,
+                &quot;user&quot;: &quot;remy newRM uat&quot;,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;21 Apr 2022&quot;,
+                &quot;code&quot;: &quot;CP6RAU8&quot;,
+                &quot;department&quot;: &quot;PBO&quot;,
+                &quot;clients_number&quot;: &quot;2&quot;,
+                &quot;officer_code&quot;: &quot;RMTE22&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;93d4a403-e370-432e-ae10-0d2c242399ad&quot;,
+                &quot;email&quot;: &quot;mahdi.matar+shariah7@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;08 Apr 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B2C3&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;af21f5a2-68ba-4fa7-9c30-821af9189e3f&quot;,
+                &quot;email&quot;: &quot;hassanein@nbksuisse.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;22 Mar 2022&quot;,
+                &quot;code&quot;: &quot;C5B2D1&quot;,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;1&quot;,
+                &quot;officer_code&quot;: &quot;C5B2D1&quot;,
+                &quot;has_clients&quot;: true
+            },
+            {
+                &quot;id&quot;: &quot;63ae69bf-e4b0-48e7-bbf5-5695456f7fe5&quot;,
+                &quot;email&quot;: &quot;roy.braish+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M9&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;423cd7de-3a47-4aa8-bed8-3eb0941e3531&quot;,
+                &quot;email&quot;: &quot;nader.rafeh+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M8&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;942e5bb1-49af-4af5-a546-5bcd5ecbad54&quot;,
+                &quot;email&quot;: &quot;ali.moussawi+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M7&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;39bbc6be-1929-4a29-9084-94b4cbd59ef0&quot;,
+                &quot;email&quot;: &quot;mohamad.harb+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M6&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;4355d702-66ab-4b07-869a-5fbd12d1a4a1&quot;,
+                &quot;email&quot;: &quot;bilal.sleiman+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M5&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;a6a70cf9-86e6-468b-adc7-ebf72a757640&quot;,
+                &quot;email&quot;: &quot;abdullah+tesla@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M4&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;6e35f041-7911-4e7e-b4c5-60b7730943b4&quot;,
+                &quot;email&quot;: &quot;zeinab.majed+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M3&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;cc153d90-261b-4f6f-aee4-419777dc65de&quot;,
+                &quot;email&quot;: &quot;julie.kamel+rm@neo.ae&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M2&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;5d7e003f-ea40-4560-87a8-51c7709ae835&quot;,
+                &quot;email&quot;: &quot;join@nbkcapitalsmartwealth.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;B1B4M1&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;fba6218b-b62f-4dd6-bed1-6460e32b5209&quot;,
+                &quot;email&quot;: &quot;AmerNsouli@nbk.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B4M6&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;57cb5638-ad57-478a-8a46-abe295f58f9f&quot;,
+                &quot;email&quot;: &quot;RobertK@nbk.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B4M5&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;f567ba0e-1b09-48b2-8e76-a7d38ec3743d&quot;,
+                &quot;email&quot;: &quot;AwatifH@nbk.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B4M4&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;3e12f7cf-65d7-47d4-a9f0-b48a4c6de91a&quot;,
+                &quot;email&quot;: &quot;NakhleKadi@nbk.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B4M3&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;d80ca544-ccaf-4183-80a1-7d219906dd53&quot;,
+                &quot;email&quot;: &quot;FMundani@nbk.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B4M2&quot;,
+                &quot;has_clients&quot;: false
+            },
+            {
+                &quot;id&quot;: &quot;e50c49d5-16ee-4908-bd65-a05428473d4f&quot;,
+                &quot;email&quot;: &quot;ZiadAbouNader@nbk.com&quot;,
+                &quot;user&quot;: null,
+                &quot;full_name&quot;: null,
+                &quot;creation_date&quot;: &quot;14 Mar 2022&quot;,
+                &quot;code&quot;: null,
+                &quot;department&quot;: &quot;CBG&quot;,
+                &quot;clients_number&quot;: &quot;0&quot;,
+                &quot;officer_code&quot;: &quot;A1B4M1&quot;,
+                &quot;has_clients&quot;: false
+            }
+        ]
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Risk_Engine Class ::user_paci</td>
+          <td class="col-duration">0.72</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/paci</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/paci
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;fields&quot;: [
+            {
+                &quot;label&quot;: &quot;full_name&quot;,
+                &quot;db_value&quot;: &quot;Create User Backend Automation Script&quot;,
+                &quot;paci_value&quot;: &quot;&quot;,
+                &quot;is_matched&quot;: false
+            },
+            {
+                &quot;label&quot;: &quot;date_of_birth&quot;,
+                &quot;db_value&quot;: &quot;09/06/1996&quot;,
+                &quot;paci_value&quot;: &quot;&quot;,
+                &quot;is_matched&quot;: false
+            },
+            {
+                &quot;label&quot;: &quot;civilID_expiry&quot;,
+                &quot;db_value&quot;: &quot;12/08/2026&quot;,
+                &quot;paci_value&quot;: &quot;&quot;,
+                &quot;is_matched&quot;: false
+            },
+            {
+                &quot;label&quot;: &quot;nationality&quot;,
+                &quot;db_value&quot;: &quot;KW&quot;,
+                &quot;paci_value&quot;: &quot;&quot;,
+                &quot;is_matched&quot;: false
+            },
+            {
+                &quot;label&quot;: &quot;gender&quot;,
+                &quot;db_value&quot;: &quot;m&quot;,
+                &quot;paci_value&quot;: &quot;&quot;,
+                &quot;is_matched&quot;: false
+            },
+            {
+                &quot;label&quot;: &quot;passport_number&quot;,
+                &quot;db_value&quot;: &quot;Backend&quot;,
+                &quot;paci_value&quot;: &quot;&quot;,
+                &quot;is_matched&quot;: false
+            }
+        ],
+        &quot;result&quot;: &quot;n/a&quot;,
+        &quot;clear_enabled&quot;: true,
+        &quot;flag_enabled&quot;: true
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Risk_Engine Class ::user_world_check</td>
+          <td class="col-duration">5.18</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/world-check</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/world-check
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;kyc_data&quot;: {
+            &quot;full_name&quot;: &quot;Create User Backend Automation Script&quot;,
+            &quot;date_of_birth&quot;: &quot;1996-06-09T00:00:00.000Z&quot;,
+            &quot;nationality&quot;: &quot;Kuwait&quot;
+        },
+        &quot;world_check_results&quot;: [],
+        &quot;clear_enabled&quot;: true,
+        &quot;flag_enabled&quot;: true
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Risk_Engine Class ::user_kyc</td>
+          <td class="col-duration">0.61</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/kyc</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/kyc
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;sex&quot;: &quot;male&quot;,
+        &quot;first_name&quot;: &quot;Create User&quot;,
+        &quot;middle_name&quot;: &quot;Backend Automation&quot;,
+        &quot;family_name&quot;: &quot;Script&quot;,
+        &quot;birth_country&quot;: &quot;Australia&quot;,
+        &quot;nationality&quot;: &quot;Kuwait&quot;,
+        &quot;birth_date&quot;: &quot;1996-06-09T00:00:00.000Z&quot;,
+        &quot;civil_id_number&quot;: &quot;521125273533&quot;,
+        &quot;civil_id_serial&quot;: &quot;1234567890&quot;,
+        &quot;civil_id_expiry_date&quot;: &quot;2026-08-12T19:39:40.000Z&quot;,
+        &quot;passport_number&quot;: &quot;Backend&quot;,
+        &quot;passport_country&quot;: &quot;Lebanon&quot;,
+        &quot;passport_expiry_date&quot;: &quot;2028-08-23T15:57:51.290Z&quot;,
+        &quot;is_customer_same_as_beneficiary&quot;: true,
+        &quot;beneficiary_power_of_attorney_enabled&quot;: false,
+        &quot;address_country&quot;: &quot;Kuwait&quot;,
+        &quot;address_city&quot;: &quot;Farwaniya&quot;,
+        &quot;address_area&quot;: &quot;Reggai&quot;,
+        &quot;address_street&quot;: &quot;Test&quot;,
+        &quot;address_block&quot;: &quot;55&quot;,
+        &quot;address_house&quot;: &quot;Test&quot;,
+        &quot;contact_mobile_number&quot;: &quot;59226334&quot;,
+        &quot;employment_status&quot;: &quot;employed&quot;,
+        &quot;employer_type&quot;: &quot;private_sector&quot;,
+        &quot;private_sector_industry&quot;: &quot;travel_transportation&quot;,
+        &quot;employment_sector&quot;: &quot;travel_agency&quot;,
+        &quot;employment_company&quot;: &quot;Yik&quot;,
+        &quot;employment_department&quot;: &quot;Hjb&quot;,
+        &quot;employment_place&quot;: &quot;Ijv&quot;,
+        &quot;auth_sign_process_financial_transactions&quot;: false,
+        &quot;board_membership_existing&quot;: false,
+        &quot;investment_reason&quot;: &quot;income_generation&quot;,
+        &quot;trading_experience&quot;: &quot;good&quot;,
+        &quot;income_source&quot;: [
+            &quot;investments&quot;
+        ],
+        &quot;income_annual&quot;: &quot;20,000-50,000&quot;,
+        &quot;liquid_investments_kd&quot;: &quot;less_than_15000&quot;,
+        &quot;assets_value&quot;: &quot;above_100000_kd&quot;,
+        &quot;transactions_value_past_two_years&quot;: &quot;below_250000_kd&quot;,
+        &quot;financial_sector_years_experience&quot;: &quot;less_than_one_year&quot;,
+        &quot;bank_name&quot;: &quot;al_ahli&quot;,
+        &quot;political_position_existing&quot;: true,
+        &quot;political_position_is_me&quot;: false,
+        &quot;political_position_role&quot;: &quot;parliment_member&quot;,
+        &quot;political_position_relationship&quot;: &quot;child&quot;,
+        &quot;political_position_name&quot;: &quot;Testfamilymemberpolitical name&quot;,
+        &quot;us_citizen&quot;: true,
+        &quot;tax_payer_identification&quot;: &quot;Testtaxus&quot;,
+        &quot;us_address_1&quot;: &quot;Testus1&quot;,
+        &quot;us_address_2&quot;: &quot;Testus2&quot;,
+        &quot;pays_taxes_in_other_country&quot;: true,
+        &quot;tax_country_1&quot;: &quot;United States of America&quot;,
+        &quot;tax_country_2&quot;: &quot;Iceland&quot;,
+        &quot;tax_country_3&quot;: &quot;Aruba&quot;,
+        &quot;tax_payer_id_1&quot;: &quot;TestTaxUS&quot;,
+        &quot;tax_payer_id_2&quot;: &quot;Test tax additional 1&quot;,
+        &quot;tax_payer_id_3&quot;: &quot;Test tax additional 2&quot;
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Risk_Engine Class ::user_pep</td>
+          <td class="col-duration">0.65</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/pep</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/pep
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;pep&quot;: {
+            &quot;political_position_existing&quot;: true,
+            &quot;political_position_role&quot;: &quot;parliment_member&quot;,
+            &quot;political_position_is_client&quot;: &quot;&quot;,
+            &quot;relation_to_family_member&quot;: &quot;child&quot;,
+            &quot;full_name_of_family_member&quot;: &quot;Testfamilymemberpolitical name&quot;,
+            &quot;result&quot;: &quot;n/a&quot;
+        },
+        &quot;world_check&quot;: {
+            &quot;pep_status&quot;: &quot;n/a&quot;,
+            &quot;result&quot;: &quot;n/a&quot;
+        },
+        &quot;clear_enabled&quot;: true,
+        &quot;flag_enabled&quot;: true
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Risk_Engine Class ::user_countries</td>
+          <td class="col-duration">0.67</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/countries</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/countries
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;fields&quot;: [
+            {
+                &quot;label&quot;: &quot;nationality&quot;,
+                &quot;country_name&quot;: &quot;Kuwait&quot;,
+                &quot;fatf_check&quot;: &quot;n/a&quot;,
+                &quot;result&quot;: &quot;n/a&quot;
+            },
+            {
+                &quot;label&quot;: &quot;passport_country&quot;,
+                &quot;country_name&quot;: &quot;Lebanon&quot;,
+                &quot;fatf_check&quot;: &quot;n/a&quot;,
+                &quot;result&quot;: &quot;n/a&quot;
+            },
+            {
+                &quot;label&quot;: &quot;tax_country_1&quot;,
+                &quot;country_name&quot;: &quot;United States of America&quot;,
+                &quot;fatf_check&quot;: &quot;n/a&quot;,
+                &quot;result&quot;: &quot;n/a&quot;
+            },
+            {
+                &quot;label&quot;: &quot;tax_country_2&quot;,
+                &quot;country_name&quot;: &quot;Iceland&quot;,
+                &quot;fatf_check&quot;: &quot;n/a&quot;,
+                &quot;result&quot;: &quot;n/a&quot;
+            },
+            {
+                &quot;label&quot;: &quot;tax_country_3&quot;,
+                &quot;country_name&quot;: &quot;Aruba&quot;,
+                &quot;fatf_check&quot;: &quot;n/a&quot;,
+                &quot;result&quot;: &quot;n/a&quot;
+            },
+            {
+                &quot;label&quot;: &quot;beneficiary_nationality&quot;,
+                &quot;country_name&quot;: &quot;&quot;,
+                &quot;fatf_check&quot;: &quot;n/a&quot;,
+                &quot;result&quot;: &quot;n/a&quot;
+            },
+            {
+                &quot;label&quot;: &quot;guardian_nationality&quot;,
+                &quot;country_name&quot;: &quot;&quot;,
+                &quot;fatf_check&quot;: &quot;n/a&quot;,
+                &quot;result&quot;: &quot;n/a&quot;
+            }
+        ],
+        &quot;result&quot;: &quot;n/a&quot;,
+        &quot;clear_enabled&quot;: true,
+        &quot;flag_enabled&quot;: true
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Risk_Engine Class ::user_employment</td>
+          <td class="col-duration">0.68</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/employment</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/employment
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;kyc_check&quot;: {
+            &quot;income_source&quot;: &quot;investments&quot;,
+            &quot;employment_status&quot;: &quot;employed&quot;,
+            &quot;employer_type&quot;: &quot;private_sector&quot;,
+            &quot;industry_entity_type&quot;: &quot;travel_transportation&quot;,
+            &quot;sector&quot;: &quot;travel_agency&quot;,
+            &quot;company_entity_name&quot;: &quot;Yik&quot;,
+            &quot;department&quot;: &quot;Hjb&quot;,
+            &quot;job_title&quot;: &quot;Ijv&quot;,
+            &quot;is_authority&quot;: &quot;No&quot;,
+            &quot;result&quot;: &quot;n/a&quot;
+        },
+        &quot;world_check&quot;: {
+            &quot;employment_status&quot;: &quot;NA&quot;,
+            &quot;employer_type&quot;: &quot;NA&quot;,
+            &quot;industry&quot;: &quot;NA&quot;,
+            &quot;result&quot;: &quot;n/a&quot;
+        },
+        &quot;clear_enabled&quot;: true,
+        &quot;flag_enabled&quot;: true
+    }
+}
+
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td>200</td>
+          <td>Risk_Engine Class ::user_kyc_2</td>
+          <td class="col-duration">0.59</td>
+          <td>https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/kyc</td></tr>
+        <tr class="collapsed">
+          <td class="extra" colspan="5">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>CURL: curl -X GET -H &#x27;Accept: */*&#x27; -H &#x27;Accept-Encoding: gzip, deflate&#x27; -H &#x27;Accept-Language: en-US,en;q=0.9&#x27; -H &#x27;Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjczNTMxMTc4LCJleHAiOjE2NzYxMjMxNzgsImF6cCI6IlFwVldaa2xzVjlJN2hEQmZoRFZXNlBNR1J0RzlwTnM2Iiwic2NvcGUiOiJvcGVuaWQgZW1haWwgcmVhZDpjdXJyZW50X3VzZXIgdXBkYXRlOmN1cnJlbnRfdXNlcl9tZXRhZGF0YSBkZWxldGU6Y3VycmVudF91c2VyX21ldGFkYXRhIGNyZWF0ZTpjdXJyZW50X3VzZXJfbWV0YWRhdGEgY3JlYXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgZGVsZXRlOmN1cnJlbnRfdXNlcl9kZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmN1cnJlbnRfdXNlcl9pZGVudGl0aWVzIiwiZ3R5IjoicGFzc3dvcmQifQ.u3CW-ig5rLlrXE-TOiDgYMxkSaZyqVj9aUND9s9Y3tb5Q9mvRXk4Fu-DIO0R8BRjXAt98lql4NHW8Y1gPTWrhbWCMQKZwVCisUVTNnbCnIZAP5N0iL4idPNZNNNGDc5gNFGSHPeLdCM-3tFH0zVeoT_nJvKeu8ffydqkxBwkA92AjHXDTd-Ash2Blk5RXNdJ85gkb6kYF_PkOGzTA9VFRWUPJB8mEWh8JLI8Lhxl7vteLdfPqAdmrm6kuLuqeUMNoNjSmMaLvWqXUTFIJVcNPe89U8sGrjR-Z2-4iEK7z54X_0xuABDaEWymNhjZPG6EHCoZJOmeksIyUsrMYFHJ0A&#x27; -H &#x27;Connection: keep-alive&#x27; -H &#x27;ContentType: application/json&#x27; -H &#x27;Origin: https://admin.nbkcapital-smartwealth.com&#x27; -H &#x27;Referer: https://admin.nbkcapital-smartwealth.com/&#x27; -H &#x27;Sec-Fetch-Dest: empty&#x27; -H &#x27;Sec-Fetch-Mode: cors&#x27; -H &#x27;Sec-Fetch-Site: same-site&#x27; -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&#x27; -H &#x27;X-Locale: en_US&#x27; -H &#x27;X-Platform: web&#x27; -H &#x27;X-Version: 2.0&#x27; -H &#x27;sec-ch-ua: &quot;Google Chrome&quot;;v=&quot;107&quot;, &quot;Chromium&quot;;v=&quot;107&quot;, &quot;Not=A?Brand&quot;;v=&quot;24&quot;&#x27; -H &#x27;sec-ch-ua-mobile: ?0&#x27; -H &#x27;sec-ch-ua-platform: &quot;Windows&quot;&#x27; https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/ef0ed12a-a0d4-47f6-bdcc-842d71a9f207/kyc
+RESPONSE: {
+    &quot;meta&quot;: {
+        &quot;sex&quot;: &quot;male&quot;,
+        &quot;first_name&quot;: &quot;Create User&quot;,
+        &quot;middle_name&quot;: &quot;Backend Automation&quot;,
+        &quot;family_name&quot;: &quot;Script&quot;,
+        &quot;birth_country&quot;: &quot;Australia&quot;,
+        &quot;nationality&quot;: &quot;Kuwait&quot;,
+        &quot;birth_date&quot;: &quot;1996-06-09T00:00:00.000Z&quot;,
+        &quot;civil_id_number&quot;: &quot;521125273533&quot;,
+        &quot;civil_id_serial&quot;: &quot;1234567890&quot;,
+        &quot;civil_id_expiry_date&quot;: &quot;2026-08-12T19:39:40.000Z&quot;,
+        &quot;passport_number&quot;: &quot;Backend&quot;,
+        &quot;passport_country&quot;: &quot;Lebanon&quot;,
+        &quot;passport_expiry_date&quot;: &quot;2028-08-23T15:57:51.290Z&quot;,
+        &quot;is_customer_same_as_beneficiary&quot;: true,
+        &quot;beneficiary_power_of_attorney_enabled&quot;: false,
+        &quot;address_country&quot;: &quot;Kuwait&quot;,
+        &quot;address_city&quot;: &quot;Farwaniya&quot;,
+        &quot;address_area&quot;: &quot;Reggai&quot;,
+        &quot;address_street&quot;: &quot;Test&quot;,
+        &quot;address_block&quot;: &quot;55&quot;,
+        &quot;address_house&quot;: &quot;Test&quot;,
+        &quot;contact_mobile_number&quot;: &quot;59226334&quot;,
+        &quot;employment_status&quot;: &quot;employed&quot;,
+        &quot;employer_type&quot;: &quot;private_sector&quot;,
+        &quot;private_sector_industry&quot;: &quot;travel_transportation&quot;,
+        &quot;employment_sector&quot;: &quot;travel_agency&quot;,
+        &quot;employment_company&quot;: &quot;Yik&quot;,
+        &quot;employment_department&quot;: &quot;Hjb&quot;,
+        &quot;employment_place&quot;: &quot;Ijv&quot;,
+        &quot;auth_sign_process_financial_transactions&quot;: false,
+        &quot;board_membership_existing&quot;: false,
+        &quot;investment_reason&quot;: &quot;income_generation&quot;,
+        &quot;trading_experience&quot;: &quot;good&quot;,
+        &quot;income_source&quot;: [
+            &quot;investments&quot;
+        ],
+        &quot;income_annual&quot;: &quot;20,000-50,000&quot;,
+        &quot;liquid_investments_kd&quot;: &quot;less_than_15000&quot;,
+        &quot;assets_value&quot;: &quot;above_100000_kd&quot;,
+        &quot;transactions_value_past_two_years&quot;: &quot;below_250000_kd&quot;,
+        &quot;financial_sector_years_experience&quot;: &quot;less_than_one_year&quot;,
+        &quot;bank_name&quot;: &quot;al_ahli&quot;,
+        &quot;political_position_existing&quot;: true,
+        &quot;political_position_is_me&quot;: false,
+        &quot;political_position_role&quot;: &quot;parliment_member&quot;,
+        &quot;political_position_relationship&quot;: &quot;child&quot;,
+        &quot;political_position_name&quot;: &quot;Testfamilymemberpolitical name&quot;,
+        &quot;us_citizen&quot;: true,
+        &quot;tax_payer_identification&quot;: &quot;Testtaxus&quot;,
+        &quot;us_address_1&quot;: &quot;Testus1&quot;,
+        &quot;us_address_2&quot;: &quot;Testus2&quot;,
+        &quot;pays_taxes_in_other_country&quot;: true,
+        &quot;tax_country_1&quot;: &quot;United States of America&quot;,
+        &quot;tax_country_2&quot;: &quot;Iceland&quot;,
+        &quot;tax_country_3&quot;: &quot;Aruba&quot;,
+        &quot;tax_payer_id_1&quot;: &quot;TestTaxUS&quot;,
+        &quot;tax_payer_id_2&quot;: &quot;Test tax additional 1&quot;,
+        &quot;tax_payer_id_3&quot;: &quot;Test tax additional 2&quot;
+    }
+}
+
+<br/></div></td></tr></tbody></table></body></html>

@@ -1,0 +1,2342 @@
+
+
+  curl "https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/steps" ^
+
+
+  curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/portfolios?investment_type=etf' \
+
+
+  curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/funds' \
+
+
+  curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/deposits' \
+
+
+  curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/withdrawals' \
+  
+  curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/withdrawals' \
+
+
+  curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/banks' \
+
+
+
+
+  #TODO: FIXME: All the requets below:
+
+
+
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/general/permissions' \
+
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/general/permissions' \
+
+
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/general/permissions' \
+
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/general/permissions' \
+ 
+curl 'https://admin.nbkcapital-smartwealth.com/manifest.237672d372ac2dbc41abcad025b1df1d.json' \
+
+curl 'https://admin.nbkcapital-smartwealth.com/favicon.ico' \
+  -H 'authority: admin.nbkcapital-smartwealth.com' \
+  -H 'accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: _ga=GA1.2.1207907981.1652169778; intercom-id-pze2qq1c=2d28cb52-c12a-4476-9906-c479441be7aa; intercom-session-pze2qq1c=NXRtaUY5Z2NhU0w4OVVZcjNzT0FLUGpqQ3JQWnZPVndhZFU4NWo3WVcveEF5VVRydEYwZXNScmFpaFZkbzN4QS0tNnJKMEtzWEVzZUF3YmNjQjFFRHlQUT09--4f76c2ab8c404df4076c033f3cc225257c9bb684; _auth0.ssodata_compat=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; auth0.ssodata=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22' \
+  -H 'if-modified-since: Fri, 07 Oct 2022 14:33:09 GMT' \
+  -H 'if-none-match: "10f432d040e163dd9c6d4a3c1282e322"' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: image' \
+  -H 'sec-fetch-mode: no-cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://fonts.googleapis.com/icon?family=Material+Icons' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.1.0/leaflet.css' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.css' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/runtime.f313483333a663e9be5d.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.amcharts.112e4569fb807ddd4d33.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.pdfjs-dist.75f74459bc490c767bd3.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.babel.9a1997c83a183637945e.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.material-ui.514caa038da11fcddaf8.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.rxjs.398561fd71a58ede9091.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.lodash.d6ce21b3fedbc5a756ab.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.date-fns.c57881834d5c5345d19d.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.moment.b58e8f5bb0e743e3cc72.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.babel-runtime.0ea72890c3c1c626e0d7.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/main.1916a7b17669a693f80b.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl $'data:image/svg+xml,%3Csvg id=\'Layer_1\' data-name=\'Layer 1\' xmlns=\'http://www.w3.org/2000/svg\' xmlns:xlink=\'http://www.w3.org/1999/xlink\' viewBox=\'0 0 157 32\'%3E%3Cdefs%3E%3Cstyle%3E.cls-1,.cls-2,.cls-3%7Bfill:none;%7D.cls-2%7Bclip-rule:evenodd;%7D.cls-3%7Bfill-rule:evenodd;%7D.cls-4%7Bclip-path:url(%23clip-path);%7D.cls-5%7Bclip-path:url(%23clip-path-2);%7D.cls-6%7Bclip-path:url(%23clip-path-3);%7D.cls-7%7Bclip-path:url(%23clip-path-4);%7D.cls-8%7Bclip-path:url(%23clip-path-5);%7D.cls-9%7Bfill:%23241f21;%7D.cls-10%7Bfill:%23e31738;%7D.cls-11%7Bclip-path:url(%23clip-path-6);%7D.cls-12%7Bclip-path:url(%23clip-path-7);%7D.cls-13%7Bclip-path:url(%23clip-path-8);%7D.cls-14%7Bclip-path:url(%23clip-path-10);%7D.cls-15%7Bclip-path:url(%23clip-path-12);%7D.cls-16%7Bclip-path:url(%23clip-path-13);%7D.cls-17%7Bclip-path:url(%23clip-path-14);%7D.cls-18%7Bclip-path:url(%23clip-path-15);%7D.cls-19%7Bclip-path:url(%23clip-path-16);%7D.cls-20%7Bclip-path:url(%23clip-path-17);%7D.cls-21%7Bclip-path:url(%23clip-path-18);%7D%3C/style%3E%3CclipPath id=\'clip-path\'%3E%3Ccircle class=\'cls-1\' cx=\'416\' cy=\'-559.5\' r=\'18.92\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-2\'%3E%3Ccircle class=\'cls-1\' cx=\'546\' cy=\'-559.5\' r=\'37.85\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-3\'%3E%3Cpath class=\'cls-2\' d=\'M176.64-175.07h6.29a.78.78,0,0,1,.78.78.78.78,0,0,1-.78.79h-6.29a.78.78,0,0,1-.78-.79A.78.78,0,0,1,176.64-175.07Z\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-4\'%3E%3Cpath class=\'cls-2\' d=\'M179-171.14v-6.29a.78.78,0,0,1,.79-.78.78.78,0,0,1,.78.78v6.29a.78.78,0,0,1-.78.78A.78.78,0,0,1,179-171.14Z\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-5\'%3E%3Cpath class=\'cls-2\' d=\'M124.86-175.29h6.28a.79.79,0,0,1,.79.79.79.79,0,0,1-.79.79h-6.28a.79.79,0,0,1-.79-.79A.79.79,0,0,1,124.86-175.29Z\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-6\'%3E%3Ccircle class=\'cls-1\' cx=\'15.78\' cy=\'74.5\' r=\'12\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-7\'%3E%3Cpath class=\'cls-2\' d=\'M57.54,69a10.31,10.31,0,0,0,2.3-.42,3.53,3.53,0,0,1,1.17,0c.72.27.4.55.55,1.16.2.83.53,1.16.24,2-.39,1.17-.67,1.51.12,2.57a2.34,2.34,0,0,0,.82.89c.39.19.65,0,1,.09a1.83,1.83,0,0,1,1.4,1.4,14.47,14.47,0,0,1,.08,2.47,5,5,0,0,0,1.09,2.43,4.67,4.67,0,0,1,.88,2.6c0,.92,0,1.36.63,2a13,13,0,0,1,1.11-3.91,4.06,4.06,0,0,1,1.49-1.81c.77-.46,1.81-.3,1.79-1.43S71.33,78,70.52,77.7a3.74,3.74,0,0,1-1.78-1.43c-.74-.82-1.35-.52-2.33-.65a7,7,0,0,1-2.21-1c-.77-.39-1.43-1.22-.06-1.26,1,0,.76.67,1.45.91,1.16.4.73-1,.91-1.65.24-.86.63-.84,1.39-1,1-.2,2.86-2.19,1.16-2.71-1-.32-1,.51-1.64.88s-1.53.1-1.31-.71c.79.06,1.62-.79,1.06-1.57a2.3,2.3,0,0,0-2-.33c-.25.17-.23.64-.42.77a2.61,2.61,0,0,1-1.33,0c-.43-.18-.62-.85-1-1.07a2.34,2.34,0,0,0-1-.16c0-.85,0-1.47.85-1.86a10.66,10.66,0,0,1,1.86-.33,5.34,5.34,0,0,0,1.25-.66c1.25-.72,3.84-1.39,4.5.23.28.7.16,1.53.41,2.22s.9,1.34,1.08,2.2.21,1.33,1.22,1.25,1-.87,1.08-1.71c.46,0,.81-.28,1.29-.17a2.48,2.48,0,0,1,.18,1c.51.3,1.34.48,1,1.31-.23.54-.91.43-1.5.58-1.47.35-1.94,1.47-1.08,2.83s1,2.19,2.56,2.76a3.51,3.51,0,0,1,1.72,1c.4.49.36,1.17.68,1.62\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-8\'%3E%3Cpath class=\'cls-2\' d=\'M743.78,65.54a9.17,9.17,0,1,1-9.36,9.16,9.27,9.27,0,0,1,9.36-9.16m0-.84A10,10,0,1,0,754,74.7a10.11,10.11,0,0,0-10.21-10\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-10\'%3E%3Cpath class=\'cls-2\' d=\'M669.78,65.33a9.17,9.17,0,1,1-9.17,9.17,9.19,9.19,0,0,1,9.17-9.17m0-.83a10,10,0,1,0,10,10,10,10,0,0,0-10-10\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-12\'%3E%3Cpath class=\'cls-2\' d=\'M232.64,131.71h6.28a.79.79,0,0,1,0,1.58h-6.28a.79.79,0,0,1,0-1.58Z\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-13\'%3E%3Cpath class=\'cls-2\' d=\'M235,135.64v-6.28a.79.79,0,0,1,1.58,0v6.28a.79.79,0,1,1-1.58,0Z\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-14\'%3E%3Ccircle class=\'cls-1\' cx=\'279.78\' cy=\'132.5\' r=\'11.35\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-15\'%3E%3Ccircle class=\'cls-1\' cx=\'327.78\' cy=\'132.5\' r=\'5.09\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-16\'%3E%3Cpolygon class=\'cls-2\' points=\'108.38 128.8 103.78 133.4 99.18 128.8 97.78 130.2 103.78 136.2 109.78 130.2 108.38 128.8\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-17\'%3E%3Cpolygon class=\'cls-2\' points=\'143.18 136.2 147.78 131.6 152.38 136.2 153.78 134.8 147.78 128.8 141.78 134.8 143.18 136.2\'/%3E%3C/clipPath%3E%3CclipPath id=\'clip-path-18\'%3E%3Ccircle class=\'cls-1\' cx=\'738.78\' cy=\'215.5\' r=\'12\'/%3E%3C/clipPath%3E%3C/defs%3E%3Ctitle%3Elogo-black%3C/title%3E%3Cpolygon class=\'cls-9\' points=\'108.74 15.25 109.65 15.25 111.79 10.57 110.83 10.57 108.74 15.25\'/%3E%3Cpolygon class=\'cls-9\' points=\'119.82 15.25 122.45 15.25 120.29 10.57 117.78 10.57 119.82 15.25\'/%3E%3Cpolygon class=\'cls-9\' points=\'115.29 0.61 111.27 9.59 112.24 9.59 114.85 3.89 114.87 3.93 114.89 3.89 117.35 9.59 119.83 9.59 115.67 0.61 115.29 0.61\'/%3E%3Cpath class=\'cls-9\' d=\'M90.49,4.92h-.66A4,4,0,0,0,88.27,2,4.06,4.06,0,0,0,86,1.42,3,3,0,0,0,84.21,2a2,2,0,0,0-.82,1.61,1.8,1.8,0,0,0,.46,1.19A12.3,12.3,0,0,0,87.07,7c1.16.6,1.91,1,2.24,1.24A4.9,4.9,0,0,1,91.06,10a3.49,3.49,0,0,1,.41,1.63A3.59,3.59,0,0,1,90,14.52a5.06,5.06,0,0,1-3.22,1.05,8.56,8.56,0,0,1-1.17-.07,5.11,5.11,0,0,1-1.5-.44,4.27,4.27,0,0,1-1.58-1.45,5.09,5.09,0,0,1-.79-3h.66a4.61,4.61,0,0,0,.4,2.15,3.58,3.58,0,0,0,1.59,1.48,4.59,4.59,0,0,0,2.16.51,3.43,3.43,0,0,0,2-.59,2,2,0,0,0,.93-1.75,2.56,2.56,0,0,0-1.23-2.07,19.66,19.66,0,0,0-2.49-1.47,18.65,18.65,0,0,1-2.52-1.52,3.66,3.66,0,0,1-1.64-3A3.39,3.39,0,0,1,83,1.63a4.63,4.63,0,0,1,3-1,5.22,5.22,0,0,1,2.82.75A3.82,3.82,0,0,1,90,2.78a6.23,6.23,0,0,1,.53,2.14\'/%3E%3Cpolygon class=\'cls-9\' points=\'92.74 0.94 94.84 0.93 100.19 12.12 105.45 0.93 107.55 0.93 107.55 15.25 105.46 15.25 105.46 3.2 99.76 15.25 99.4 15.25 93.7 3.2 93.7 15.25 92.74 15.25 92.74 0.94\'/%3E%3Cpath class=\'cls-9\' d=\'M132.54,15.25l-5-6.67H126v6.67h-2.08V1l3.25-.11a11,11,0,0,1,3.48.33,3.9,3.9,0,0,1,1.92,1.27,3.16,3.16,0,0,1,.74,2.09c0,1.92-1.21,3.15-3.64,3.67l5.21,7ZM126,7.9h.61a5.39,5.39,0,0,0,2.9-.7,2.67,2.67,0,0,0,1.35-2.45A2.91,2.91,0,0,0,130,2.56a3.17,3.17,0,0,0-2.28-.82,9.23,9.23,0,0,0-1.71.2Z\'/%3E%3Cpolygon class=\'cls-9\' points=\'141.15 1.85 141.15 15.25 139.06 15.25 139.06 1.85 134.13 1.88 134.13 0.93 146.18 0.93 146.18 1.85 141.15 1.85\'/%3E%3Cpolygon class=\'cls-9\' points=\'113.16 26.39 111.06 31.07 111.97 31.07 114.11 26.39 113.16 26.39\'/%3E%3Cpolygon class=\'cls-9\' points=\'120.1 26.39 122.14 31.07 124.78 31.07 122.61 26.39 120.1 26.39\'/%3E%3Cpolygon class=\'cls-9\' points=\'90.44 16.75 86.99 27.76 83.17 16.74 80.93 16.74 86.36 31.39 86.75 31.39 90.1 22.24 93.46 31.39 93.9 31.39 99.15 16.75 98.16 16.74 94.26 27.75 90.82 16.74 90.44 16.75\'/%3E%3Cpath class=\'cls-9\' d=\'M109.7,31.07h-9.29V16.75h9.29v.78h-7.18v5.66h6V24h-6v4.72c0,.49,0,.76,0,.81a.85.85,0,0,0,.38.67,2,2,0,0,0,.83.12h6Z\'/%3E%3Cpath class=\'cls-9\' d=\'M135.44,31.07h-9.31V16.77l2.09,0V28.52a2.7,2.7,0,0,0,.18,1.2c.13.24.45.39,1,.44h6.38Z\'/%3E%3Cpolygon class=\'cls-9\' points=\'132.24 16.75 132.24 17.7 137.18 17.67 137.18 31.07 139.27 31.07 139.27 17.67 144.3 17.67 144.3 16.75 132.24 16.75\'/%3E%3Cpolygon class=\'cls-9\' points=\'154.62 16.75 154.62 23.39 147.75 23.39 147.75 16.75 145.65 16.75 145.65 17.04 145.66 31.07 147.75 31.07 147.75 24.17 154.62 24.17 154.62 31.07 156.7 31.07 156.7 30.46 156.69 16.75 154.62 16.75\'/%3E%3Cpolygon class=\'cls-9\' points=\'117.17 19.71 117.19 19.75 117.21 19.71 119.67 25.41 122.16 25.41 117.99 16.43 117.61 16.43 113.59 25.41 114.56 25.41 117.17 19.71\'/%3E%3Cpolygon class=\'cls-9\' points=\'10.28 0.61 10.28 11.28 1.39 0.61 0.3 0.61 0.3 15.02 1.25 15.02 1.25 3.61 10.84 15.07 11.22 15.07 11.22 0.61 10.28 0.61\'/%3E%3Cpath class=\'cls-9\' d=\'M17.17.61a13.28,13.28,0,0,1,2.89.25A4.88,4.88,0,0,1,22.44,2.1a3.2,3.2,0,0,1,1,2.39c0,1.6-.89,2.68-2.68,3.24a4.87,4.87,0,0,1,2.31,1,3.16,3.16,0,0,1,1.06,2.41,3.48,3.48,0,0,1-.75,2.16,4,4,0,0,1-1.87,1.36,11.13,11.13,0,0,1-3.73.47H12.89V.61ZM15,7.15a11.76,11.76,0,0,0,2.08.15c1.86,0,3.07-.46,3.64-1.37a2.9,2.9,0,0,0,.42-1.52A2.64,2.64,0,0,0,19.8,2,5.32,5.32,0,0,0,17,1.33a8,8,0,0,0-2,.23Zm0,7a10.93,10.93,0,0,0,2.51.29,5.15,5.15,0,0,0,2.77-.68,2.62,2.62,0,0,0,1.3-2.35,2.94,2.94,0,0,0-2-2.87A6.71,6.71,0,0,0,17,8a13.44,13.44,0,0,0-1.94.1Z\'/%3E%3Cpolygon class=\'cls-9\' points=\'35.14 0.62 27.83 7.63 27.82 0.62 25.72 0.62 25.7 15.16 27.83 15.16 27.83 7.89 36.94 15.16 39.44 15.16 29.94 7.09 36.71 0.62 35.14 0.62\'/%3E%3Cpath class=\'cls-10\' d=\'M43,8A1.76,1.76,0,1,1,41.2,6.3,1.73,1.73,0,0,1,43,8\'/%3E%3Cpath class=\'cls-9\' d=\'M32.31,17.06a8.38,8.38,0,0,0-3-.39l-3.21.12v14.4h2v-7a11.53,11.53,0,0,0,2.42.29,4.93,4.93,0,0,0,3.17-1A3.57,3.57,0,0,0,35,20.57a3.39,3.39,0,0,0-.73-2.15,4,4,0,0,0-1.91-1.36m-.5,5.79a2.45,2.45,0,0,1-2,.93,10.2,10.2,0,0,1-1.74-.21V17.71a6.58,6.58,0,0,1,1.39-.2,3.18,3.18,0,0,1,1.59.39,3,3,0,0,1,1.47,2.88,3.11,3.11,0,0,1-.72,2.07\'/%3E%3Crect class=\'cls-9\' x=\'36.34\' y=\'16.67\' width=\'2.04\' height=\'14.53\'/%3E%3Cpolygon class=\'cls-9\' points=\'39.78 16.66 39.78 17.6 44.59 17.57 44.59 31.18 46.63 31.18 46.63 17.57 51.53 17.57 51.53 16.66 39.78 16.66\'/%3E%3Cpath class=\'cls-9\' d=\'M66,30.29c-.51-.05-.82-.19-1-.43a2.79,2.79,0,0,1-.17-1.18v-12h-2V31.18h9.08l.29-.89Z\'/%3E%3Cpath class=\'cls-9\' d=\'M12.66,27.92a8.05,8.05,0,0,1-1.76,1.76,4.86,4.86,0,0,1-2.8.8,5.45,5.45,0,0,1-2.86-.75A5.11,5.11,0,0,1,2.86,26,9.1,9.1,0,0,1,2.75,25c0-.25,0-.5,0-.77a10,10,0,0,1,.67-3.87,4.46,4.46,0,0,1,4.41-3,5,5,0,0,1,2.49.61,7.93,7.93,0,0,1,2.35,2.33l.33-.21a7.45,7.45,0,0,0-2.52-2.75,5.37,5.37,0,0,0-2.82-.71,7.37,7.37,0,0,0-3.7,1,7,7,0,0,0-2.71,2.83A8,8,0,0,0,.3,24.25c0,.26,0,.52,0,.78A6.94,6.94,0,0,0,.48,26,7.06,7.06,0,0,0,1.77,28.8a6.53,6.53,0,0,0,5.54,2.59A6.32,6.32,0,0,0,12,29.51l-.75,1.68h1.08l2.09-4.75L14.6,26H13.53Z\'/%3E%3Cpolygon class=\'cls-9\' points=\'19.8 25.96 21.98 31.19 24.64 31.19 22.24 25.96 19.8 25.96\'/%3E%3Cpolygon class=\'cls-9\' points=\'17.94 16.63 17.57 16.63 13.94 25.03 15.01 25.03 17.23 20.12 17.24 20.14 17.25 20.12 19.4 25.03 21.82 25.03 17.94 16.63\'/%3E%3Cpolygon class=\'cls-9\' points=\'54.68 16.63 54.31 16.63 50.68 25.03 51.75 25.03 53.97 20.12 53.98 20.14 53.99 20.12 56.14 25.03 58.56 25.03 54.68 16.63\'/%3E%3Cpolygon class=\'cls-9\' points=\'56.54 25.96 58.73 31.19 61.39 31.19 58.98 25.96 56.54 25.96\'/%3E%3Cpolygon class=\'cls-9\' points=\'50.28 25.97 47.98 31.18 49.05 31.18 51.12 26.46 51.34 25.97 50.28 25.97\'/%3E%3Cpath class=\'cls-10\' d=\'M77.07,31.39c-.31,0-.56-.11-.56-.25V.86c0-.14.25-.25.56-.25s.56.11.56.25V31.14c0,.14-.25.25-.56.25\'/%3E%3C/svg%3E' \
+  -H 'Referer: ' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'data:image/svg+xml,%3C?xml%20version=%271.0%27?%3E%20%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20xmlns:xlink=%27http://www.w3.org/1999/xlink%27%20version=%271.1%27%20id=%27Capa_1%27%20x=%270px%27%20y=%270px%27%20width=%27512px%27%20height=%27512px%27%20viewBox=%270%200%20511.626%20511.627%27%20style=%27enable-background:new%200%200%20511.626%20511.627;%27%20xml:space=%27preserve%27%20class=%27%27%3E%3Cg%3E%3Cg%3E%20%3Cg%3E%20%3Cpath%20d=%27M361.161,291.652c15.037-21.796,22.56-45.922,22.56-72.375c0-7.422-0.76-15.417-2.286-23.984l-79.938,143.321%20C326.235,329.101,346.125,313.438,361.161,291.652z%27%20data-original=%27%23000000%27%20class=%27active-path%27%20data-old_color=%27%23c1c1c1%27%20fill=%27%23c1c1c1%27/%3E%20%3Cpath%20d=%27M372.872,94.221c0.191-0.378,0.28-1.235,0.28-2.568c0-3.237-1.522-5.802-4.571-7.715c-0.568-0.38-2.423-1.475-5.568-3.287%20c-3.138-1.805-6.14-3.567-8.989-5.282c-2.854-1.713-5.989-3.472-9.422-5.28c-3.426-1.809-6.375-3.284-8.846-4.427%20c-2.479-1.141-4.189-1.713-5.141-1.713c-3.426,0-6.092,1.525-7.994,4.569l-15.413,27.696c-17.316-3.234-34.451-4.854-51.391-4.854%20c-51.201,0-98.404,12.946-141.613,38.831C70.998,156.08,34.836,191.385,5.711,236.114C1.903,242.019,0,248.586,0,255.819%20c0,7.231,1.903,13.801,5.711,19.698c16.748,26.073,36.592,49.396,59.528,69.949c22.936,20.561,48.011,37.018,75.229,49.396%20c-8.375,14.273-12.562,22.556-12.562,24.842c0,3.425,1.524,6.088,4.57,7.99c23.219,13.329,35.97,19.985,38.256,19.985%20c3.422,0,6.089-1.529,7.992-4.575l13.99-25.406c20.177-35.967,50.248-89.931,90.222-161.878%20C322.908,183.871,352.886,130.005,372.872,94.221z%20M158.456,362.885C108.97,340.616,68.33,304.93,36.547,255.822%20c28.931-44.921,65.19-78.518,108.777-100.783c-11.61,19.792-17.417,41.206-17.417,64.237c0,20.365,4.661,39.68,13.99,57.955%20c9.327,18.274,22.27,33.4,38.83,45.392L158.456,362.885z%20M265.525,155.887c-2.662,2.667-5.906,3.999-9.712,3.999%20c-16.368,0-30.361,5.808-41.971,17.416c-11.613,11.615-17.416,25.603-17.416,41.971c0,3.811-1.336,7.044-3.999,9.71%20c-2.668,2.667-5.902,3.999-9.707,3.999c-3.809,0-7.045-1.334-9.71-3.999c-2.667-2.666-3.999-5.903-3.999-9.71%20c0-23.79,8.52-44.206,25.553-61.242c17.034-17.034,37.447-25.553,61.241-25.553c3.806,0,7.043,1.336,9.713,3.999%20c2.662,2.664,3.996,5.901,3.996,9.707C269.515,149.992,268.181,153.228,265.525,155.887z%27%20data-original=%27%23000000%27%20class=%27active-path%27%20data-old_color=%27%23c1c1c1%27%20fill=%27%23c1c1c1%27/%3E%20%3Cpath%20d=%27M505.916,236.114c-10.853-18.08-24.603-35.594-41.255-52.534c-16.646-16.939-34.022-31.496-52.105-43.68l-17.987,31.977%20c31.785,21.888,58.625,49.87,80.51,83.939c-23.024,35.782-51.723,65-86.07,87.648c-34.358,22.661-71.712,35.693-112.065,39.115%20l-21.129,37.688c42.257,0,82.18-9.038,119.769-27.121c37.59-18.076,70.668-43.488,99.216-76.225%20c13.322-15.421,23.695-29.219,31.121-41.401c3.806-6.476,5.708-13.046,5.708-19.702%20C511.626,249.157,509.724,242.59,505.916,236.114z%27%20data-original=%27%23000000%27%20class=%27active-path%27%20data-old_color=%27%23c1c1c1%27%20fill=%27%23c1c1c1%27/%3E%20%3C/g%3E%20%3C/g%3E%3C/g%3E%20%3C/svg%3E' \
+  -H 'Referer: ' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://fonts.gstatic.com/s/heebo/v21/NGS6v5_NC0k9P9H2TbE.woff2' --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/manifest.237672d372ac2dbc41abcad025b1df1d.json' \
+  -H 'authority: admin.nbkcapital-smartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'if-modified-since: Fri, 07 Oct 2022 14:33:09 GMT' \
+  -H 'if-none-match: "237672d372ac2dbc41abcad025b1df1d"' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/login' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: manifest' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://auth.staging-nbksmartwealth.com/co/authenticate' \
+  -H 'authority: auth.staging-nbksmartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'auth0-client: eyJuYW1lIjoiYXV0aDAuanMiLCJ2ZXJzaW9uIjoiOS4xOS4xIn0=' \
+  -H 'content-type: application/json' \
+  -H 'cookie: did=s%3Av0%3Ac8799130-cc46-11ec-a3a8-b17541c26e60.CFJMzgrgNdgqGpfeiMjS9Tndia2xliOI0A4AGbAg0bM' \
+  -H 'origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --data-raw '{"client_id":"l72d0nidcmi3OP2JW6YCp865hRkd54hP","username":"roy.braish+admin@neo.ae","password":"Password123","realm":"Username-Password-Authentication","credential_type":"http://auth0.com/oauth/grant-type/password-realm"}' \
+  --compressed ;
+curl 'https://auth.staging-nbksmartwealth.com/co/authenticate' \
+  -X 'OPTIONS' \
+  -H 'authority: auth.staging-nbksmartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'access-control-request-headers: auth0-client,content-type' \
+  -H 'access-control-request-method: POST' \
+  -H 'origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://auth.staging-nbksmartwealth.com/authorize?client_id=l72d0nidcmi3OP2JW6YCp865hRkd54hP&response_type=token%20id_token&redirect_uri=https%3A%2F%2Fadmin.nbkcapital-smartwealth.com%2Fauth&scope=openid%20email%20user_metadata&audience=https%3A%2F%2Fstaging-nbksmartwealth.eu.auth0.com%2Fapi%2Fv2%2F&realm=Username-Password-Authentication&state=XSEbvdii740aJ7gLTGBz4QCoN5sn6-mm&nonce=iCZE1cfPkFmhIzzALGzj9.JiZ_k_Mqaf&login_ticket=dFslty3fJa6_a8f1Lc6eKshvZohdic4w&response_mode=web_message&prompt=none&auth0Client=eyJuYW1lIjoiYXV0aDAuanMiLCJ2ZXJzaW9uIjoiOS4xOS4xIn0%3D' \
+  -H 'authority: auth.staging-nbksmartwealth.com' \
+  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: did=s%3Av0%3Ac8799130-cc46-11ec-a3a8-b17541c26e60.CFJMzgrgNdgqGpfeiMjS9Tndia2xliOI0A4AGbAg0bM; auth0=s%3AUcsmjwmRM5YKQ-Q46vsj0w2Bl4gzDTzj.cEJ6juQlkK8WpSNuGabcUEKLBsYwvtxfUzP6TKH9kF8; __cf_bm=BHFvCbIkUkfE6GUj9w54NU5aVhMt1nLjiAmoQLP4TR8-1665401588-0-AacIfqsy14JCX0BJGDsmC8k/WuB0V1oVHF7F2OLXpeLx5z/oQTIEuCZoRsj8bvlOSyje/ACHWRCcti+4ERe4NgA=' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: iframe' \
+  -H 'sec-fetch-mode: navigate' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'upgrade-insecure-requests: 1' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://auth.staging-nbksmartwealth.com/.well-known/jwks.json' \
+  -H 'authority: auth.staging-nbksmartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'if-modified-since: Sun, 09 Oct 2022 17:15:57 GMT' \
+  -H 'origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://fonts.googleapis.com/icon?family=Material+Icons' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.1.0/leaflet.css' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.css' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/runtime.f313483333a663e9be5d.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.amcharts.112e4569fb807ddd4d33.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.pdfjs-dist.75f74459bc490c767bd3.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.babel.9a1997c83a183637945e.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.material-ui.514caa038da11fcddaf8.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.rxjs.398561fd71a58ede9091.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.lodash.d6ce21b3fedbc5a756ab.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.date-fns.c57881834d5c5345d19d.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.moment.b58e8f5bb0e743e3cc72.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/npm.babel-runtime.0ea72890c3c1c626e0d7.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/main.1916a7b17669a693f80b.chunk.js' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/general/permissions' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/general/permissions' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://fonts.gstatic.com/s/heebo/v21/NGS6v5_NC0k9P9H2TbE.woff2' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'Referer: https://fonts.googleapis.com/' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl $'data:image/svg+xml,%3Csvg width=\'200px\' height=\'200px\' xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\' preserveAspectRatio=\'xMidYMid\' class=\'lds-rolling\' style=\'shape-rendering: auto; animation-play-state: running; animation-delay: 0s; background: rgba(0, 0, 0, 0) none repeat scroll 0%25 0%25;\'%3E%3Ccircle cx=\'50\' cy=\'50\' fill=\'none\' ng-attr-stroke=\'%7B%7Bconfig.color%7D%7D\' ng-attr-stroke-width=\'%7B%7Bconfig.width%7D%7D\' ng-attr-r=\'%7B%7Bconfig.radius%7D%7D\' ng-attr-stroke-dasharray=\'%7B%7Bconfig.dasharray%7D%7D\' stroke=\'%23ffffff\' stroke-width=\'10\' r=\'35\' stroke-dasharray=\'164.93361431346415 56.97787143782138\' style=\'animation-play-state: running; animation-delay: 0s;\'%3E%3CanimateTransform attributeName=\'transform\' type=\'rotate\' calcMode=\'linear\' values=\'0 50 50;360 50 50\' keyTimes=\'0;1\' dur=\'1s\' begin=\'0s\' repeatCount=\'indefinite\' style=\'animation-play-state: running; animation-delay: 0s;\'%3E%3C/animateTransform%3E%3C/circle%3E%3C/svg%3E' \
+  -H 'Referer: ' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/manifest.237672d372ac2dbc41abcad025b1df1d.json' \
+  -H 'authority: admin.nbkcapital-smartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'if-modified-since: Fri, 07 Oct 2022 14:33:09 GMT' \
+  -H 'if-none-match: "237672d372ac2dbc41abcad025b1df1d"' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: manifest' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/management/me' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/management/me' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/general/variables' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/general/variables' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/fonts/Material-Design-Iconic-Font.woff2?v=2.2.0' \
+  -H 'authority: cdnjs.cloudflare.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'referer: https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: font' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/a1ecc3b826d01251edddf29c3e4e1e97.woff' \
+  -H 'authority: admin.nbkcapital-smartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: _ga=GA1.2.1207907981.1652169778; intercom-id-pze2qq1c=2d28cb52-c12a-4476-9906-c479441be7aa; intercom-session-pze2qq1c=NXRtaUY5Z2NhU0w4OVVZcjNzT0FLUGpqQ3JQWnZPVndhZFU4NWo3WVcveEF5VVRydEYwZXNScmFpaFZkbzN4QS0tNnJKMEtzWEVzZUF3YmNjQjFFRHlQUT09--4f76c2ab8c404df4076c033f3cc225257c9bb684; _auth0.ssodata_compat=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; auth0.ssodata=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; _co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4_compat=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22; co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22' \
+  -H 'if-modified-since: Fri, 07 Oct 2022 14:33:08 GMT' \
+  -H 'if-none-match: "a1ecc3b826d01251edddf29c3e4e1e97"' \
+  -H 'origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: font' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/pending-approval' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/pending-funnel' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/weekly-signups' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/latest-signups' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/latest-funds' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/latest-withdrawals' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/signup-platforms' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/pending-funds' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/pending-withdrawals' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/pending-approval' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/pending-funnel' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/weekly-signups' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/latest-signups' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/latest-funds' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/latest-withdrawals' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/signup-platforms' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/pending-funds' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/dashboard/pending-withdrawals' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/5673da52c98bb6cb33ada5aaf649703e.ttf' \
+  -H 'authority: admin.nbkcapital-smartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: _ga=GA1.2.1207907981.1652169778; intercom-id-pze2qq1c=2d28cb52-c12a-4476-9906-c479441be7aa; intercom-session-pze2qq1c=NXRtaUY5Z2NhU0w4OVVZcjNzT0FLUGpqQ3JQWnZPVndhZFU4NWo3WVcveEF5VVRydEYwZXNScmFpaFZkbzN4QS0tNnJKMEtzWEVzZUF3YmNjQjFFRHlQUT09--4f76c2ab8c404df4076c033f3cc225257c9bb684; _auth0.ssodata_compat=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; auth0.ssodata=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; _co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4_compat=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22; co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22' \
+  -H 'if-modified-since: Wed, 28 Sep 2022 11:36:52 GMT' \
+  -H 'if-none-match: W/"5673da52c98bb6cb33ada5aaf649703e"' \
+  -H 'origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: font' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/36b5bab58a18b9c924861a4ccbf1a790.ttf' \
+  -H 'authority: admin.nbkcapital-smartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: _ga=GA1.2.1207907981.1652169778; intercom-id-pze2qq1c=2d28cb52-c12a-4476-9906-c479441be7aa; intercom-session-pze2qq1c=NXRtaUY5Z2NhU0w4OVVZcjNzT0FLUGpqQ3JQWnZPVndhZFU4NWo3WVcveEF5VVRydEYwZXNScmFpaFZkbzN4QS0tNnJKMEtzWEVzZUF3YmNjQjFFRHlQUT09--4f76c2ab8c404df4076c033f3cc225257c9bb684; _auth0.ssodata_compat=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; auth0.ssodata=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; _co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4_compat=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22; co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22' \
+  -H 'if-modified-since: Wed, 28 Sep 2022 11:36:51 GMT' \
+  -H 'if-none-match: W/"36b5bab58a18b9c924861a4ccbf1a790"' \
+  -H 'origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: font' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/a035ad376fc36ca17d91308451b8d015.ttf' \
+  -H 'authority: admin.nbkcapital-smartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: _ga=GA1.2.1207907981.1652169778; intercom-id-pze2qq1c=2d28cb52-c12a-4476-9906-c479441be7aa; intercom-session-pze2qq1c=NXRtaUY5Z2NhU0w4OVVZcjNzT0FLUGpqQ3JQWnZPVndhZFU4NWo3WVcveEF5VVRydEYwZXNScmFpaFZkbzN4QS0tNnJKMEtzWEVzZUF3YmNjQjFFRHlQUT09--4f76c2ab8c404df4076c033f3cc225257c9bb684; _auth0.ssodata_compat=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; auth0.ssodata=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; _co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4_compat=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22; co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22' \
+  -H 'if-modified-since: Wed, 28 Sep 2022 11:36:52 GMT' \
+  -H 'if-none-match: W/"a035ad376fc36ca17d91308451b8d015"' \
+  -H 'origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: font' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/e9d97020fbae07cbbfe175b3566ceb38.svg' \
+  -H 'authority: admin.nbkcapital-smartwealth.com' \
+  -H 'accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: _ga=GA1.2.1207907981.1652169778; intercom-id-pze2qq1c=2d28cb52-c12a-4476-9906-c479441be7aa; intercom-session-pze2qq1c=NXRtaUY5Z2NhU0w4OVVZcjNzT0FLUGpqQ3JQWnZPVndhZFU4NWo3WVcveEF5VVRydEYwZXNScmFpaFZkbzN4QS0tNnJKMEtzWEVzZUF3YmNjQjFFRHlQUT09--4f76c2ab8c404df4076c033f3cc225257c9bb684; _auth0.ssodata_compat=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; auth0.ssodata=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; _co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4_compat=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22; co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22' \
+  -H 'if-modified-since: Wed, 28 Sep 2022 11:36:53 GMT' \
+  -H 'if-none-match: W/"e9d97020fbae07cbbfe175b3566ceb38"' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: image' \
+  -H 'sec-fetch-mode: no-cors' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile?user_filter_type=all&offset=0&limit=20&investment_type=all&q=' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile?user_filter_type=all&offset=0&limit=20&investment_type=all&q=' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/info' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/status' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/info' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/daad1075-8741-4e09-afa4-e9a57404b7a8/kyc-cid-status' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/bank' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/status' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/daad1075-8741-4e09-afa4-e9a57404b7a8/kyc-cid-status' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/bank' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/notes' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/steps' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/portfolios?investment_type=etf' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/notes' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/steps' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/portfolios?investment_type=etf' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/portfolios?investment_type=mmf' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/funds' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/withdrawals' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/deposits' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/banks' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/portfolios?investment_type=mmf' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/funds' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/withdrawals' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/deposits' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/banks' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/rm/user/daad1075-8741-4e09-afa4-e9a57404b7a8' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/rm/user/daad1075-8741-4e09-afa4-e9a57404b7a8' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/address' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/address' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/rm?user_filter_type=all' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/rm?user_filter_type=all' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/status' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/notes' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/steps' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/notes' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/steps' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/status' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/status' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/paci' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/paci' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABFBAMAAAAmz9zMAAAALVBMVEVHcEwuM0QvM0UuM0QwNEYvNEU8QFcyNUcuM0Q0OUovNEUuM0QuM0QuM0UuM0RiIVqCAAAADnRSTlMArnj3NmAGIO0RTtnIlAtwV+QAAAJ2SURBVEjHvZbLaxNRFIcnwUycWCFYrIowlJqIoBWtKIg2BEVRKSWtKEpB4mMhrtKdiAQtunEx1IXgsqAbo4i6cVdEFF0FoUtBiBMxdJrvb3AxnWEe90wGCp5d7ny59zx+95yraRuxW63Z8svFFOCZnxUA+/PZAWB+P57Z2+tJZMEkYAsJXmxaJmSTDfF0k4hNSOge9/vD8qXW+O4KAN/U5FMADr/S6pqmac+GAexR5fHLAF/9UPQ3AH0Veg7gS3DlNcCIYtMK8Di8dgXoxLObATqRRBqmctsMEIvhhtLbHByNu/UCqMVWV9aqikpX4FFs1VBW8Ro49XTizapCEMyE4ynR59EcnLoqoTmwg1HM4zQSPCgGfLfgh4ROw7Gw+IsSOgSroUrLu+agE9QPVCVUt7DXi3AfgJ5ckl+w5B5vAYEzlLUd9VwB+COjTS/mLHAE/sroZnjnXZS103BIRjN+YqdO1pre/5S2FbrBgnxKjxYTJfsf0LS+NhPRDHQLO9db1E14IKND0DXpuZ1ny6Bq2X7nyCRqYNpVSc2LsS+jBwFwXAcK4MhoG4CPvtDlW5B3B0hdeYHjrYiOf/ffJnSbLOAs+T9vw+8E1N4bql1PmpJGmx2RmSE6e6cUzd1q+tboLKZvziPpUL0tdA09vnRX3eHy7ficLwD9umrw1lRNLD79s8okXgd6Ec3oprJH6yYwGU7YHGBXlbcNJoLsFMAToeXCgr+JMQPgKHWcswCckpuHe8MA7FLXYd69bye2jY2Nfycs/qhdjL6zOvKbbCVMBsQfl/G+0J6XE2UzY/nkh8agh+4B94n3vjRYjppxYbbcOr+hh/U/lhP4hsgfc9oAAAAASUVORK5CYII=' \
+  -H 'Referer: ' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/paci' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/paci' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/world-check' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/world-check' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/kyc' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/kyc' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/pep' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/pep' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/countries' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/countries' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/employment' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/risk-engine/daad1075-8741-4e09-afa4-e9a57404b7a8/employment' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/kyc' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/kyc' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/summary' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/info' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/info' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/daad1075-8741-4e09-afa4-e9a57404b7a8/civil-id-actions' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/daad1075-8741-4e09-afa4-e9a57404b7a8/civil-id-actions' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/document?document_name=civil_id_first' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/document?document_name=civil_id_second' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/document?document_name=civil_id_first' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/document?document_name=civil_id_second' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://admin.nbkcapital-smartwealth.com/user/pdf.worker.js' \
+  -H 'authority: admin.nbkcapital-smartwealth.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: _ga=GA1.2.1207907981.1652169778; intercom-id-pze2qq1c=2d28cb52-c12a-4476-9906-c479441be7aa; intercom-session-pze2qq1c=NXRtaUY5Z2NhU0w4OVVZcjNzT0FLUGpqQ3JQWnZPVndhZFU4NWo3WVcveEF5VVRydEYwZXNScmFpaFZkbzN4QS0tNnJKMEtzWEVzZUF3YmNjQjFFRHlQUT09--4f76c2ab8c404df4076c033f3cc225257c9bb684; _auth0.ssodata_compat=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; auth0.ssodata=%22{%5C%22lastUsedConnection%5C%22:%5C%22Username-Password-Authentication%5C%22%2C%5C%22lastUsedSub%5C%22:%5C%22auth0|6142e73440e7350071115716%5C%22}%22; _co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4_compat=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22; co%2Fverifier%2Fhttps%253A%252F%252Fauth.staging-nbksmartwealth.com%2FBBsaM5EH44N4=%22z_bQI4DHUKzUrF2PyvAd_4Psu41UICSN%22' \
+  -H 'referer: https://admin.nbkcapital-smartwealth.com/user/daad1075-8741-4e09-afa4-e9a57404b7a8?status=active' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: worker' \
+  -H 'sec-fetch-mode: same-origin' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/daad1075-8741-4e09-afa4-e9a57404b7a8/contract-actions' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/project-connect/daad1075-8741-4e09-afa4-e9a57404b7a8/contract-actions' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/document?document_name=signed_contract' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL2F1dGguc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5jb20vIiwic3ViIjoiYXV0aDB8NjE0MmU3MzQ0MGU3MzUwMDcxMTE1NzE2IiwiYXVkIjpbImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vYXBpL3YyLyIsImh0dHBzOi8vc3RhZ2luZy1uYmtzbWFydHdlYWx0aC5ldS5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjY1NDAxNTg4LCJleHAiOjE2NjU0MDg3ODgsImF6cCI6Imw3MmQwbmlkY21pM09QMkpXNllDcDg2NWhSa2Q1NGhQIiwic2NvcGUiOiJvcGVuaWQgZW1haWwifQ.rq5lSyFGdbEOY-ePt3RQ5YcxdU0JHokXApIyXFlvfeclPcbG3ZEap5jo25paLPBheYdd2wWa1vuW1bhwMK6RJcbudUQ120X0foW0hJdWgd7_I5lV6iDXb1p_-T7i3bJnKS2RxoqG9Chy4OiXbiqFYZAjLlo6FAbyd0yyEsQYnwQvr10ZysJwbc-PE3fwBWhZMxlVdb3reUt5to2dlBtgjsY0gWWTZ6G3RMTBTOpaVMzqWxKdpeIDqP8_-ENCP9LPD-5DOpgGtF0Z_VOrNgxyohQXWv9fIoucgjs6TZU_fYzpIKCkjEtRkj0GvKQvu-CPR0YxFCN2ZovU6bKY33bjgw' \
+  -H 'Connection: keep-alive' \
+  -H 'ContentType: application/json' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  -H 'X-Locale: en_US' \
+  -H 'X-Platform: web' \
+  -H 'X-Version: 2.0' \
+  -H 'sec-ch-ua: "Google Chrome";v="105", "Not)A;Brand";v="8", "Chromium";v="105"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --compressed ;
+curl 'https://sw-internal-uat.nbkcapital-smartwealth.com/api/v2/admin/profile/daad1075-8741-4e09-afa4-e9a57404b7a8/document?document_name=signed_contract' \
+  -X 'OPTIONS' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Access-Control-Request-Headers: authorization,contenttype,x-locale,x-platform,x-version' \
+  -H 'Access-Control-Request-Method: GET' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://admin.nbkcapital-smartwealth.com' \
+  -H 'Referer: https://admin.nbkcapital-smartwealth.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36' \
+  --compressed
