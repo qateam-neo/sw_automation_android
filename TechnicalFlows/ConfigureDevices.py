@@ -6,7 +6,7 @@ from colorama import Fore
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-import wmi
+# import wmi
 
 import time
 from Intensive_Tests.helpers import Reporting

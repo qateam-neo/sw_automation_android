@@ -1,24 +1,22 @@
+import os
+import sys
+
+
+sys.path.append(os.getcwd())
+import SystemPath
 from Intensive_Tests.Mobile_number.flows.verify_number.main import Verify_Mobile_Number
 from Intensive_Tests.Withdrawal.flows.main import Withdrawal
 from Intensive_Tests.deposits.flows.main import Deposit
 from Intensive_Tests.fingerprint.flows.biometric_fingerprint.main import Biometric_fingerprint
 from Intensive_Tests.investment_proposal.enums import PredefinedEnums
 from Intensive_Tests.investment_proposal.flows.main import Onboarding
-import SystemPath
 
-from ConfirmMobileScreen import ConfirmMobileScreen_Test
-from FingerPrintScreen import FingerPrintScreen_Test
-from GesturesAndMotions import RefreshScreenusingswipe
-from Intensive_Tests.signup_login.config import IDS
 from Intensive_Tests.signup_login.flows.sign_in.main import Sign_In
 
 
-from BookaCall import BookaCall
-from KYC import KYC_FillAll
-from PendingDashboard import PendingDashboard
 
 
-from Intensive_Tests.helpers import APIS, AndroidGestures,AppiumActions, ApplicationHelpers
+from Intensive_Tests.helpers import APIS, AppiumActions, ApplicationHelpers
 from Intensive_Tests.signup_login.flows.sign_up.main import Sign_Up
 
 from CheckFlowAndProceed import CheckFlow_ContinueReg_Showme
@@ -28,7 +26,6 @@ from time import sleep
 from ConfigureDevices import Appiumdriver
 
 
-import json
 from time import sleep
 from GetStartedScreen import GetStartedScreen_SignIn
 
@@ -67,9 +64,9 @@ try:CheckFlow_ContinueReg_Showme(driver,ReportDriver,email)
 except: sleep(0.1)
 
 
-# PendingDashboard(driver,ReportDriver)
-# KYC_FillAll(driver,ReportDriver,JSON)
-# BookaCall(driver,ReportDriver,False,True)
+PendingDashboard(driver,ReportDriver)
+KYC_FillAll(driver,ReportDriver,JSON)
+BookaCall(driver,ReportDriver,False,True)
 
 Apis.sign_contract()
 Apis.approve_by_civil_id()

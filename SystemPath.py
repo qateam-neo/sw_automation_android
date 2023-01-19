@@ -9,7 +9,7 @@ class Pythonpath():
         folder_available=False
         for File in Files:
             # print(File)
-            if os.path.isdir(self.path+"\\"+File) and File[0]!="." and not "pycache" in File:  
+            if os.path.isdir(self.path+"/"+File) and File[0]!="." and not "pycache" in File:  
                 folder_available=True
                 available_folders.append(File)
         if folder_available == False:
@@ -19,12 +19,12 @@ class Pythonpath():
             
     def _navigate_path_to_main(self):
         self.path= os.getcwd() 
-        while self.path.endswith("Appium-Automation-Python")==False and  self.path.endswith("Appium Automation Python")==False:
+        while  not self.path.endswith("sw_automation_android"):
             self.path= self.path[:-1]
 
     def _remove_last_folder_from_path(self,Folder):
         # print(self.path)
-        while self.path.endswith("\\")==False:
+        while self.path.endswith("/")==False:
             self.path= self.path[:-1]
             # print(self.path)
         self.path= self.path[:-1]
@@ -47,9 +47,9 @@ class Pythonpath():
         
         for File in Files:
             folder_available=False
-            if os.path.isdir(self.path+"\\"+File) and File[0]!="." and not "pycache" in File:  
+            if os.path.isdir(self.path+"/"+File) and File[0]!="." and not "pycache" in File:  
                 folder_available=True
-                sys.path.append(self.path+"\\"+File)
+                sys.path.append(self.path+"/"+File)
                 # print("This File was Added to path "+File)
 
 
@@ -60,7 +60,7 @@ class Pythonpath():
         self._navigate_path_to_main()
         
         if self.Platform == "mac":  
-            self.path= os.getcwd() + "/Appium-Automation-Python"
+            self.path= os.getcwd() 
             Files=os.listdir(self.path)
             
             # print(Files)
@@ -68,7 +68,7 @@ class Pythonpath():
                 # print(os.path.isdir(File))
                 if "." not in File:  
                     sys.path.append(self.path+"/"+File)
-                    # print(self.path+"\\"+File)
+                    # print(self.path+"/"+File)
 
 
         if self.Platform == "windows":  
@@ -85,7 +85,7 @@ class Pythonpath():
             
             
             for File in available_folders:
-                self.path=self.path+"\\"+File
+                self.path=self.path+"/"+File
                 # print(self.path)
                 available_folders=self.check_if_folders_available()
                 # print(available_folders)
@@ -93,21 +93,21 @@ class Pythonpath():
                     self._add_paths_from_folder()
                     for mini_file in available_folders:
                         # print("\t"+mini_file)
-                        self.path=self.path+"\\"+mini_file
+                        self.path=self.path+"/"+mini_file
                         # print(self.path)
                         available_folders=self.check_if_folders_available()
                         if available_folders!=False:   
                             self._add_paths_from_folder()
                             for mini_mini_file in available_folders:
                                 # print("\t"+mini_mini_file)
-                                self.path=self.path+"\\"+mini_mini_file
+                                self.path=self.path+"/"+mini_mini_file
                                 # print(self.path)
                                 available_folders=self.check_if_folders_available()
                                 if available_folders!=False:   
                                     self._add_paths_from_folder()
                                     # print(self.path)
                                     for mini_mini_mini_file in available_folders:
-                                        self.path=self.path+"\\"+mini_mini_mini_file
+                                        self.path=self.path+"/"+mini_mini_mini_file
                                         # print(self.path)
                                         available_folders=self.check_if_folders_available()
                                         if available_folders!=False:   
