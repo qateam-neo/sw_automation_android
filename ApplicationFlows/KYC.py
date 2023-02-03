@@ -1,5 +1,6 @@
 import base64
 import json
+import os
 import sys
 from time import sleep
 from colorama import Fore
@@ -13,6 +14,7 @@ from BlueScreens import AlmostThere_Blue, PersonalInfo_Blue
 from CheckIfPageLoading import CheckIfPageLoading
 from GesturesAndMotions import scrollDown
 from HTMLFunctions import GenerateReport
+from Intensive_Tests.helpers import Random_values
 from KYCFillers import ChooseBirthDate, ChooseExpiryDate, ClickonCheckbox, SelectLocation
 from ManualReport import ReportResults, ReportUserFinalResults
 from TestRailReporting import TestRailReportSuccess
@@ -48,6 +50,21 @@ def KYC_FillAll(driver,ReportDriver,JSON,Notes="N/A"):
     RiskScore=JSON["SingleUserDetails"]["RiskScore"].lower()
     OnboardingFlow=JSON["SingleUserDetails"]["OnboardingFlow"].lower()
     User_Type=JSON["SingleUserDetails"]["User_Type"].lower()
+    
+    a_file = open(os.getcwd()+"/BaseClasses/KYC_3.0_JSON_File.json", "r")
+    json_object = json.load(a_file)
+    a_file.close()
+    # print(json_object)
+
+    json_object["KYC_3.0"]["PersonalInfo_Fields"]["CivilID"] = str(Random_values().generate_numeric_value.with_length(12))
+
+    a_file = open(os.getcwd()+"/BaseClasses/KYC_3.0_JSON_File.json", "w")
+    json.dump(json_object, a_file)
+    a_file.close()
+    
+    with open(os.getcwd()+"/BaseClasses/KYC_3.0_JSON_File.json") as file:
+# Load its content and make a new dictionary
+        JSON=json.load(file)
 
     if "kyc" in StopFlag.lower() and "personal" in StopFlag.lower() :
     
@@ -248,14 +265,14 @@ def KYC_PersonalInfo(driver,ReportDriver,PersonalInfo_Json):
             sleep(2)
             driver.find_element(By.ID,"neo.nbkc.smartwealth.demo:id/submitButton").click()
             
-    a_file = open("C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\KYC_3.0_JSON_File.json", "r")
+    a_file = open(os.getcwd()+"/BaseClasses/KYC_3.0_JSON_File.json", "r")
     json_object = json.load(a_file)
     a_file.close()
     # print(json_object)
 
     json_object["KYC_3.0"]["PersonalInfo_Fields"]["CivilID"] = str(intCivilIDNew)
 
-    a_file = open("C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\KYC_3.0_JSON_File.json", "w")
+    a_file = open(os.getcwd()+"/BaseClasses/KYC_3.0_JSON_File.json", "w")
     json.dump(json_object, a_file)
     a_file.close()
             
@@ -282,6 +299,7 @@ def KYC_AddressInfo(driver,ReportDriver,AddressInfo_JSON):
         driver.press_keycode(4)
         scrollDown(driver,500, 2200, 500, 700)
         driver.find_element(By.ID,"neo.nbkc.smartwealth.demo:id/submitButton").click()
+
 
     WebDriverWait(driver,10).until(EC.visibility_of_element_located((By.ID, "neo.nbkc.smartwealth.demo:id/tvTitle")))
     Titles= driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/tvTitle")

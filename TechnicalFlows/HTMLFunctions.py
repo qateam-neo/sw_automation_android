@@ -1,10 +1,11 @@
 
 import sys
+import os
 from time import sleep
 from bs4 import BeautifulSoup
 
 def InitializeHTMLReport():
-    file = open("C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\Reports\\frontend_html_results.html","w")
+    file = open(os.getcwd()+"/Reports/frontend_html_results.html","w")
     file.write(
                '''
 
@@ -197,7 +198,7 @@ def AddHTMLResults(Title,Message,Status):
 
     
     
-    with open("C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\Reports\\frontend_html_results.html",encoding="utf8") as html:
+    with open(os.getcwd()+"/Reports/frontend_html_results.html",encoding="utf8") as html:
 
         soup=BeautifulSoup(html,"html.parser")
     div = soup.select_one("tbody")
@@ -210,19 +211,19 @@ def AddHTMLResults(Title,Message,Status):
     # print(soup)
     # print (soup)
 
-    # with open("C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\Reports\\frontend_html_results.html", 'w') as html:
+    # with open(os.getcwd()+"/Reports/frontend_html_results.html", 'w') as html:
     #     html.
 
-    file = open("C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\Reports\\frontend_html_results.html","w",encoding="utf8")
+    file = open(os.getcwd()+"/Reports/frontend_html_results.html","w",encoding="utf8")
     file.write(str(soup))
     file.close()
 
 def GenerateReport():
     t=6
     count=1
-    print("Please wait, generating your report...",file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+    print("Please wait, generating your report...",file = open(os.getcwd()+'BaseClasses/Results.txt', 'a'))
 
     sleep(3)
-    print("Reports generated successfully, in order to access them please click 'More Info' button above!! ",file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+    print("Reports generated successfully, in order to access them please click 'More Info' button above!! ",file = open(os.getcwd()+'BaseClasses/Results.txt', 'a'))
 
  

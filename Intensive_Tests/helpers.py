@@ -1,4 +1,7 @@
 import json
+import os
+print(os.getcwd())
+
 import requests
 from Intensive_Tests.investment_proposal.config import IDS
 from Intensive_Tests.deposits.config import IDS as Deposit_IDS
@@ -17,7 +20,6 @@ import random
 import string
 
 from ManualReport import ReportResults
-
 
 
 class AndroidGestures():
@@ -207,7 +209,7 @@ class Reporting():
         risk_score=str(risk_score)
         if status:
             print(Fore.GREEN+"TEST success:  %s on %s with risk score %s"%(screen,self.flow,risk_score)+Fore.RESET)
-            print("TEST success:  "+screen,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("TEST success:  "+screen,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
             
             
         if status == False and expected!="N/A" and actual!="N/A" and solution!="N/A":
@@ -217,33 +219,33 @@ class Reporting():
             print("\tSuggested Solution:\t\t"+solution +Fore.RESET)
             
             
-            print("TEST Fail: "  +screen,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("TEST Fail: "  +screen,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
             sleep(1)
-            print("\tExpected:\t\t"+expected ,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("\tExpected:\t\t"+expected ,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
             sleep(1)
-            print("\tActual:\t\t"+actual ,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("\tActual:\t\t"+actual ,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
             sleep(1)
-            print("\tSuggested Solution:\t\t"+solution ,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("\tSuggested Solution:\t\t"+solution ,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
         
         elif status == False and expected!="N/A" and actual!="N/A":
             print(Fore.RED+"TEST Fail: %s on %s with risk score %s"%(screen,self.flow,risk_score))
-            print("\tExpected:\t"+str(expected))
+            print("\tExpected:\t\t"+str(expected))
             print("\tActual:\t\t"+str(actual) )
             print("\tSuggested Solution:\t\t"+str(solution) +Fore.RESET)
             
-            print("TEST Fail: "  +screen,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("TEST Fail: "  +screen,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
             sleep(1)
-            print("\tExpected:\t\t"+expected ,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("\tExpected:\t\t"+expected ,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
             sleep(1)
-            print("\tActual:\t\t"+actual ,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("\tActual:\t\t"+actual ,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
 
         elif status == False:
             print(Fore.RED+"TEST Fail: %s on %s with risk score %s"%(screen,self.flow,risk_score)+Fore.RESET)
-            print("TEST Fail: "  +screen,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("TEST Fail: "  +screen,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
 
     def report_testcase_not_shown(self,screen):
             print(Fore.YELLOW+"TEST Skip: %s is not shown"%screen+Fore.RESET)
-            print("%s is not shown"%screen,file = open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\Results.txt', 'a'))
+            print("%s is not shown"%screen,file = open(os.getcwd()+'/BaseClasses/Results.txt', 'a'))
 
 
 class Random_values:
@@ -369,6 +371,12 @@ class APIS:
         else:self.email=Credentials.email
         self.password=Credentials.password
         self.AndroidGestures=AndroidGestures(self.driver)
+        try:self._get_user_profile()
+        except:
+            try:self._get_user_profile()
+            except:
+                print("Get user API is showing error")
+        
         # self.Authorization=self._get_user_token()
         
     def _get_header(self):
@@ -391,8 +399,13 @@ class APIS:
         "total_withdrawals", "total_nav", "total_net_daily_earning", "total_earnings", "latest_earnings_date", "total", "otp_preferred_method", "otp_sms_status", "is_otp_preferred_method_selected", 
         "is_predefined_risk_score_selected", "missing_info", "calendly_url" }
         """
-        self._get_user_token()
-        r = requests.get(self.SW_UAT_URL+"profile", headers= self._get_header())
+        
+        
+            
+        try:r = requests.get(self.SW_UAT_URL+"profile", headers= self._get_header())
+        except:
+            self._get_user_token()
+            r=requests.get(self.SW_UAT_URL+"profile",headers=self._get_header())
         a=r.json()
         self.user_id=a["meta"]["id"]
         try:self.iban=a["meta"]["iban"]
@@ -456,7 +469,7 @@ class APIS:
         print(response.json())
         return (response.json())["otp"]
         
-    def _activate_user(self,amount):
+    def _activate_user(self,amount=10000):
         self._get_user_profile()
         r = requests.post(self.SW_UAT_URL+"development/activate/"+self.user_id,
         data=json.dumps({"initial_investment":int(amount)}),
@@ -503,7 +516,7 @@ class APIS:
                 
         response=requests.post(
             self.SW_UAT_URL+"profile/primary-id",
-            files={'file': open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\TEST.pdf', 'rb')},
+            files={'file': open(os.getcwd()+'/BaseClasses/TEST.pdf', 'rb')},
             headers=header)
         print(response.json())
         
@@ -511,7 +524,7 @@ class APIS:
         
         response=requests.post(
             self.SW_UAT_URL+"profile/primary-id-other-side",
-            files={'file': open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\BaseClasses\\TEST.pdf', 'rb')},
+            files={'file': open(os.getcwd()+'/BaseClasses/TEST.pdf', 'rb')},
             headers=header)
         print(response.json())
         # if response.status_code!=200 and response.status_code!=201 and response.status_code!=202: return False
@@ -520,12 +533,13 @@ class APIS:
         print(response.json())
         # if response.status_code!=200 and response.status_code!=201 and response.status_code!=202: return False
 
-        response=requests.post(
-            self.SW_UAT_URL+"profile/video-id",
-            files={'file': open('C:\\Users\\Roy Braish\\Roy Personal\\Appium-Automation-Python\\Test.mp4', 'rb')},
-            headers=header)
-        print(response.json())
-        
+        # response=requests.post(
+        #     self.SW_UAT_URL+"profile/video-id",
+        #     data=json.dumps({'file_name':'%s.mp4'%(self.user_id)}),
+        #     headers=header)
+        # print(response.json())
+
+
         
      
     def withdrawal_otp(self):
