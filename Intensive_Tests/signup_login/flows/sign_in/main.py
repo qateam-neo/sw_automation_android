@@ -65,8 +65,10 @@ class Sign_In():
         if self.AppiumGestures.get_element(IDS.SignIn.password_entry).text=="•••••••••••":print("We Can skip password")
         else:self.AppiumGestures.send_keys_to_element(IDS.SignIn.password_entry,self.password)
 
-    def _test_happy_path(self):
+    def _test_happy_path(self,email="from_credentials_DEFAULT"):
         self.AppiumGestures._check_if_visible(IDS.SignIn.title)
+        if email!= "from_credentials_DEFAULT":
+            self.email=email
         self.test_valid_email()
         self.test_valid_password()
         
@@ -77,5 +79,7 @@ class Sign_In():
             self._test_backup_valid_email()
             self.AppiumGestures.click_element(IDS.SignIn.login_button)
         
+        if self.AppiumGestures._check_if_visible(IDS.Notification_Intercome.close_button,7):
+            self.AppiumGestures.click_element(IDS.Notification_Intercome.close_button)
         return self.email
             

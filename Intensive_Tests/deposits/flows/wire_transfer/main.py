@@ -47,10 +47,10 @@ class WireTransferFlow():
         self.testcase="Select Portfolio to Deposit"
         self.AppiumGestures._check_if_visible(IDS.active_select_portfolio.portfolio1_option,6)
         
-        self._test_text(IDS.active_select_portfolio.portfolio_title,Localization_BT.active_select_portfolio.portfolio_title)
+        self._test_text(IDS.active_select_portfolio.portfolio_title,Localization_deposits.active_select_portfolio.portfolio_title)
         
-        if self.is_islamic: expected=Localization_BT.active_select_portfolio.islamic_portfolio_type
-        else:               expected=Localization_BT.active_select_portfolio.portfolio_type
+        if self.is_islamic: expected=Localization_deposits.active_select_portfolio.islamic_portfolio_type
+        else:               expected=Localization_deposits.active_select_portfolio.portfolio_type
         self._test_text(IDS.active_select_portfolio.portfolio_type,expected)
         
         self._test_text(IDS.active_select_portfolio.portfolio_amount,'${:,}'.format(int(self.balance)) )
@@ -142,7 +142,7 @@ class WireTransferFlow():
             self.AppiumGestures.click_element(IDS.TransferInstructions.continue_button)
         except:
             try:
-                self.AppiumGestures.scrollDown()
+                self.AppiumGestures.scrollDown_refresh()
                 self.AppiumGestures.click_element(IDS.TransferInstructions.continue_button)
             except:
                 self.AndroidGestures.BACK()

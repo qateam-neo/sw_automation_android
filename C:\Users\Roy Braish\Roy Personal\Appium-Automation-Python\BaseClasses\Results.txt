@@ -1,0 +1,209 @@
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+NEW test Case reported(TEST success)  'Get Started' Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+Personal Info Blue Screen is not shown
+NEW test Case reported(TEST success)  'Get Started' Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+Personal Info Blue Screen is not shown
+NEW test Case reported(TEST success)  'Get Started' Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+Personal Info Blue Screen is not shown
+NEW test Case reported(TEST success)  'Get Started' Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+Personal Info Blue Screen is not shown
+NEW test Case reported(TEST success)  'Get Started' Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 792281767069 Worked!
+NEW test Case reported(TEST success)  'Get Started' Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+Personal Info Blue Screen is not shown
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 928391234583 Worked!
+NEW test Case reported(TEST success)  'Get Started' Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+NEW test Case reported(TEST success)  'Get Started' Screen
+FingerPrint Screen is not shown
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 928391234583 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 928391234583 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 193587193434 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 293813553685 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 748133838178 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 353908297909 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 482860379061 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 817539883103 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 35244045808 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 336123933248 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 919560039001 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen
+FingerPrint Screen is not shown
+NEW test Case reported(TEST success)  Pending Dashboard on KYC Step
+NEW test Case reported(TEST success)  Personal Info Blue Screen
+	Civil ID 616891279749 Worked!
+NEW test Case reported(TEST success)  Personal Info KYC 3.0
+NEW test Case reported(TEST success)  Address Info KYC 3.0
+NEW test Case reported(TEST success)  Almost There Blue Screen
+NEW test Case reported(TEST success)  Employment KYC 3.0
+NEW test Case reported(TEST success)  Income and wealth KYC 3.0
+NEW test Case reported(TEST success)  Additional Information KYC 3.0
+NEW test Case reported(TEST success)  Confirm Classification KYC 3.0
+NEW test Case reported(TEST success)  Book a Call Screen

@@ -9,7 +9,7 @@ from Intensive_Tests.signup_login.flows.sign_up.config import Credentials, Local
 
 
 class Sign_Up():
-    risk_score_target = 1
+    risk_score_target = "N/A"
     driver = None
 
     def __init__(self,driver):
@@ -23,7 +23,7 @@ class Sign_Up():
         
         self.AndroidGestures=AndroidGestures(self.driver)
         self.AppiumGestures=AppiumActions(self.driver)
-        self.Report=Reporting(self.driver,"customized")
+        self.Report=Reporting(self.driver,"Sign Up")
         self.DataBase=DataBase()
         self.APIs=APIS(self.driver,self.email)
 
@@ -98,6 +98,9 @@ class Sign_Up():
         
         while not self._test_passed(): 
             self._analyze_error()
+            
+        if self.AppiumGestures._check_if_visible(IDS.Notification_Intercome.close_button,7):
+            self.AppiumGestures.click_element(IDS.Notification_Intercome.close_button)
 
         return self.email
             

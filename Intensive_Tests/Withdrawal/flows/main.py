@@ -59,8 +59,8 @@ class Withdrawal:
 
         if not skip_details:
             self._test_text(IDS.Choose_portfolio.portfolio1_title,Localization_withdrawal.Choose_portfolio.portfolio1_title)
-            if self.is_islamic:expected=Localization_withdrawal.Choose_portfolio.portfolio1_type
-            else: expected=Localization_withdrawal.Choose_portfolio.islamic_portfolio_type
+            if self.is_islamic:expected=Localization_withdrawal.Choose_portfolio.islamic_portfolio_type
+            else: expected=Localization_withdrawal.Choose_portfolio.portfolio1_type
             self._test_text(IDS.Choose_portfolio.portfolio1_type,expected)
         self.AppiumGestures.click_element(IDS.Choose_portfolio.portfolio1_option)
     

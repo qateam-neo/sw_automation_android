@@ -298,7 +298,8 @@ class Appiumdriver:
         for s in UDIDSection:
             if "emulator" in s:
                 UDID=s[0:13]
-        # print(UDID)
+        print(UDID)
+        self.UDID=UDID
         os.popen("adb -s %s shell am start -n io.appium.settings/io.appium.settings.Settings"%UDID)
 
     def _restart_adb(self):

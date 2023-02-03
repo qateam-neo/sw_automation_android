@@ -1,1 +1,325 @@
 TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST Fail: KNET screen
+	Expected:		KNET should be enabled
+	Actual:		KNET is not enabled
+	Suggested Solution:		Enable UDF# and UDF4
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: KNET screen
+	Expected:		KNET should be enabled
+	Actual:		KNET is not enabled
+	Suggested Solution:		Enable UDF# and UDF4
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to transfer the below amount from your NBK app to complete your deposit:
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to transfer the below amount from your NBK app to complete your deposit:
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST Fail: Select Portfolio to Deposit
+	Expected:		$0
+	Actual:		$3,229,970
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to transfer the below amount from your NBK app to complete your deposit:
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+TEST Fail: Choose portfolio screen
+	Expected:		Conventional
+	Actual:		Islamic
+TEST Fail: Choose portfolio screen
+	Expected:		Conventional
+	Actual:		Islamic
+TEST Fail: Enter amount screen
+	Expected:		$3,229,969
+	Actual:		$3,229,970
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to transfer the below amount from your NBK app to complete your deposit:
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST Fail: Select Portfolio to Deposit
+	Expected:		$0
+	Actual:		$9,150,865
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to transfer the below amount from your NBK app to complete your deposit:
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+TEST Fail: Choose portfolio screen
+	Expected:		Islamic
+	Actual:		Conventional
+TEST Fail: Choose portfolio screen
+	Expected:		Islamic
+	Actual:		Conventional
+TEST Fail: Enter amount screen
+	Expected:		$9,150,864
+	Actual:		$9,150,865
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST Fail: Select Portfolio to Deposit
+	Expected:		$0
+	Actual:		$696,422
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST Fail: Select Portfolio to Deposit
+	Expected:		$0
+	Actual:		$7,862,996
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+TEST Fail: Enter amount screen
+	Expected:		$7,862,995
+	Actual:		$7,862,996
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST Fail: Select Portfolio to Deposit
+	Expected:		$0
+	Actual:		$7,606,855
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+TEST Fail: customized islamic full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: predefined etf full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Predefined option (Predefined, balanced, growth)
+	Expected:		Onboard an islamic user with risk score 7
+	Actual:		Islamic users are not eligible for risk <6
+	Suggested Solution:		Setting risk scoe to 7 and proceeding
+TEST Fail: predefined islamic full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST Fail: Select Portfolio to Deposit
+	Expected:		$0
+	Actual:		$7,207,685
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST Fail: Select Portfolio to Deposit
+	Expected:		$0
+	Actual:		$3,709,670
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+TEST Fail: Enter amount screen
+	Expected:		$3,709,669
+	Actual:		$3,709,670
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST Fail: Select Portfolio to Deposit
+	Expected:		$0
+	Actual:		$2,608,870
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+Verify Mobile Number is not shown
+Fingerprint is not shown
+TEST Fail: Select Portfolio to Deposit
+	Expected:		$0
+	Actual:		$10,292,454
+TEST Fail: Transfer Instructions
+	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
+	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
+TEST Fail: predefined islamic full user test

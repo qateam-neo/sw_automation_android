@@ -1,4 +1,5 @@
 from enum import Enum, IntEnum
+import random
 
 # class syntax
 class AndroidEnums(IntEnum):
@@ -22,8 +23,15 @@ class AndroidEnums(IntEnum):
     KEYCODE_ENTER = 66
 
 class PredefinedEnums(IntEnum):
+     
     CONSERVATIVE = 3
     BALANCED = 5
     GROWTH = 7
     
+    def values(self):
+         return [self.CONSERVATIVE, self.BALANCED, self.GROWTH]
+    
+    def Get_random_value(self):
+        values=self.values()
+        return random.choice(values)
 

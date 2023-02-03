@@ -22,7 +22,7 @@ class Localization_BT:
             
     class TransferInstructions:
         title="Transfer Instructions"
-        description="You're almost done! You still need to transfer the below amount from your NBK app to complete your deposit:"
+        description="You're almost done! You still need to manually transfer money from your bank app to complete your deposit."
         
         dropdown_description="I will wire funds from this bank account:"
         continue_button="Done"

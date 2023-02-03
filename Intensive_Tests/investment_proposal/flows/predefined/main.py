@@ -52,6 +52,9 @@ class PredefinedFlow():
         self._choose_predefined_option()
         
     def start_happy_path(self,detailed=True):
+        if "islamic" in self.user_type.lower() and self.risk_score_target<6: 
+            self.risk_score_target=7
+            self.Report.report_testcase(False,"Predefined option (Predefined, balanced, growth)",self.risk_score_target,"Onboard an islamic user with risk score "+str(self.risk_score_target),"Islamic users are not eligible for risk <6","Setting risk scoe to 7 and proceeding")
         self.predefined_scores_screen(detailed)
         
         

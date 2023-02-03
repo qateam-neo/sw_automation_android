@@ -1,9 +1,13 @@
+import random
 from time import sleep
 from Intensive_Tests.helpers import APIS, AndroidGestures, AppiumActions, Reporting
 from Intensive_Tests.investment_proposal.config import IDS, Localization_Onboarding,Investment_Proposal_Info
 from Intensive_Tests.investment_proposal.enums import PredefinedEnums
+from Intensive_Tests.investment_proposal.flows.customized.main import CustomizedFlow
 from Intensive_Tests.investment_proposal.flows.predefined.main import PredefinedFlow
-
+from selenium.webdriver.support.ui import WebDriverWait # needs to be used when creating a function everytime
+from selenium.webdriver.support import expected_conditions # needs to be used when creating a function everytime
+from selenium.webdriver.common.by import By
 
 class Onboarding :
     
@@ -161,7 +165,7 @@ class Onboarding :
           
         if user_type is not None: self.user_type=user_type
         if risk_score_target is not None: self.risk_score_target=risk_score_target
-
+        
         self.AppiumGestures._check_if_visible(IDS.investment_type_screen.etf_tag)
         
         if detailed:
@@ -177,7 +181,8 @@ class Onboarding :
         
         
     def test_investment_proposal_screen(self,detailed=True):
-        self.AppiumGestures._check_if_visible(IDS.investment_proposal_screen.start_investing_button,8)
+        self.AppiumGestures._check_if_visible(IDS.investment_proposal_screen.start_investing_button,25)
+        WebDriverWait(self.driver,10).until(expected_conditions.element_to_be_clickable((By.ID,IDS.investment_proposal_screen.start_investing_button)))
         if detailed:self._test_InvProp_text()
         self.AppiumGestures.click_element(IDS.investment_proposal_screen.start_investing_button)
 
@@ -195,4 +200,14 @@ class Onboarding :
         self.test_investment_type_screen(detailed=False)
         self.test_investment_proposal_screen(detailed=False)
         
-            
+    def start_customized_happy_path(self,risk_score="default",detailed=True):
+        self.onboarding_flow="customized"
+        if risk_score=="default":
+            if "islamic" in self.user_type.lower(): self.risk_score_target=random.choice([6,7,8,9,10])
+            if "etf" in self.user_type.lower(): self.risk_score_target=random.choice([1,2,3,4,5])
+        self.test_get_started_screen(False)
+        self.test_how_would_you_like_to_get_started_screen(False)
+        CustomizedFlow(self.driver,self.risk_score_target,self.user_type).start_happy_path(False)
+        self.test_investment_type_screen(False)
+        self.test_investment_proposal_screen(False)
+        

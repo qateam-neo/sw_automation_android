@@ -225,15 +225,15 @@ class CustomizedFlow():
                 self._fill_age_input(question['value'])
         self._investment_type()
 
-    def test_happy_path(self):
+    def start_happy_path(self,detailed=False):
         for question in questionnaires[self.risk_score_target]:
             if(question['type'] == 'select'):
                 self._select_option(question['value'])
             if (question['type'] == 'input'):
                 self._fill_age_input(question['value'])
-        self._investment_type()
-        self._test_recommended_risk()
-        self.AppiumGestures.click_element(IDS.investment_proposal_screen.start_investing_button)
+        # self._investment_type()
+        # self._test_recommended_risk()
+        # self.AppiumGestures.click_element(IDS.investment_proposal_screen.start_investing_button)
 
     def start_intensive_tests(self):
         for risk_score in range(1,11):
