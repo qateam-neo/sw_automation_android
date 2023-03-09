@@ -315,9 +315,9 @@ questionnaires = {
 questionnaire_questions={
     1:"What is your primary reason for investing?",
     2:"What is your current age?",
-    3: "What is your monthly income (in USD)?",
+    3:"What is your monthly income (in KD)?",
     4:"What best describes your household?",
-    5:"What is the total value of your cash and liquid investments (in USD)?",
+    5:"What is the total value of your cash and liquid investments?",
     6:"I would rather have lower and predictable investment returns than ones which may be higher, but less predictable.",
     7:"I believe that I generally take bigger investment risks with my money than other people.",
     8:"I worry about losing money in the stock market.",

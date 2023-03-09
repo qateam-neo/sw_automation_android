@@ -79,7 +79,7 @@ class CustomizedFlow():
                         AgeField.click()
                 
             A=self.driver.find_element(By.ID,"neo.nbkc.smartwealth.demo:id/questionTextView")
-            if A.text=="What is your monthly income (in USD)?":
+            if A.text==questionnaire_questions[3]:
                 sleep(0.2)
                 SamePage=False
                 # print(Fore.GREEN+"\t"+Title.text +" is Successfull!!!"+Fore.RESET)
