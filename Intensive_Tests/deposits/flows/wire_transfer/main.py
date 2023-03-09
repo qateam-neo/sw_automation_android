@@ -2,6 +2,7 @@
 from Intensive_Tests.deposits.config import IDS, Localization_deposits, TransferRules
 from Intensive_Tests.enums import limits
 from Intensive_Tests.helpers import APIS, AndroidGestures, AppiumActions, Random_values, Reporting
+from Intensive_Tests.pending_dashboard.flows.main import PendingDashboard
 from .config import  Localization_BT
 
 
@@ -12,6 +13,7 @@ class WireTransferFlow():
 
     def __init__(self, driver,email):
         self.driver = driver
+        
         self.email=email
         self.ReportDriver=None
         self.AndroidGestures=AndroidGestures(self.driver)
@@ -157,14 +159,14 @@ class WireTransferFlow():
         self.APIs._activate_user()
 
     def start(self):
-        self.pending_dashboard()
+        PendingDashboard(self.driver).start(False)
         self.select_payment_method(IDS.SelectPaymentMethod.bt_option_button)
         self.iban()
         
     def test_initial_deposit_happy_path(self):
         self.Report.change_flow("Initial deposit")
 
-        self.pending_dashboard()
+        PendingDashboard(self.driver).start(False)
         self.select_payment_method(IDS.SelectPaymentMethod.bt_option_button)
         if self.AppiumGestures._check_if_visible(IDS.IBAN.iban_entry,10):self.iban()
         self.enter_amount()
