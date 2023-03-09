@@ -266,7 +266,7 @@ def ConfigureDeviceEmulator(ReportDriver,Credentials):
 class Appiumdriver:
     def __init__(self):
         self.UDID="emulator-5554"
-        self.remote_url="http://127.0.0.1:4723/wd/hub"
+        self.remote_url="http://127.0.0.1:4724/wd/hub"
         self.desired_caps = {
             "deviceName": "Android Emulator",
             "platformName": "Android",
@@ -294,10 +294,10 @@ class Appiumdriver:
         for e in returned_text.split("\n"):
             if "emulator" in e and "device" in e:
                 UDIDSection=e.split("\t")
-                break
-        for s in UDIDSection:
-            if "emulator" in s:
-                UDID=s[0:13]
+                for s in UDIDSection:
+                    if "emulator" in s:
+                        UDID=s[0:13]
+                        break
         print(UDID)
         self.UDID=UDID
         os.popen("adb -s %s shell am start -n io.appium.settings/io.appium.settings.Settings"%UDID)
