@@ -1,5 +1,7 @@
 import json
 import os
+
+from Intensive_Tests.kyc.flows.personal_info.config import Field_types
 print(os.getcwd())
 
 import requests
@@ -11,16 +13,18 @@ import SystemPath
 from time import sleep
 from colorama import Fore
 import psycopg2
-from Intensive_Tests.enums import limits,AndroidEnums
+from Intensive_Tests.enums import AndroidEnums
 from selenium.webdriver.support.ui import WebDriverWait # needs to be used when creating a function everytime
 from selenium.webdriver.support import expected_conditions # needs to be used when creating a function everytime
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 import random
 import string
+from appium.webdriver.common.touch_action import TouchAction
 
 from ManualReport import ReportResults
 
+from appium.webdriver.common.mobileby import MobileBy
 
 class AndroidGestures():
     
@@ -85,7 +89,18 @@ class AppiumActions:
         self.driver = driver
         self.action_chains=ActionChains(self.driver)
         self.Android=AndroidGestures(self.driver)
+        self.action = TouchAction(self.driver)
+
     
+    def scroll_down(self):
+        self.action.press(x=500, y=1500).move_to(x=500, y=500).release().perform()
+
+    def scroll_up_date(self):
+        self.action.press(x=500, y=1100).move_to(x=500, y=2000).release().perform()
+        
+    def scroll_down_expiry_date(self):
+        self.action.press(x=500, y=2000).move_to(x=500, y=1100).release().perform()
+
     def return_to_pending_dashboard(self):
         while not self._check_if_visible("neo.nbkc.smartwealth.demo:id/tvTime",1):
             self.Android.BACK()
@@ -138,22 +153,32 @@ class AppiumActions:
     def scrollDown_refresh(self,x_initial=452, y_initial=544, x_final=416, y_final= 1694):
         self.driver.swipe(x_initial,y_initial,x_final,y_final,626)
 
-    def send_keys_to_element(self,ID,message,skip=False,timeout=4):
-        self.wait_for_element(ID,timeout).send_keys(message)
-        shown_message=self.get_element(ID).text
-        if shown_message != message and not skip:
-            try: 
-                message="$"+format(int(message), ',d')
-                if shown_message ==message:
-                    return True
-                else:raise ValueError("Intended.")
-            except:
-                self.click_element(ID)
-                sleep(1)
-                self.action_chains.send_keys(message).perform()
-                if self.driver.is_keyboard_shown():
-                    self.driver.press_keycode(4) 
-    
+    def send_keys_to_element(self,message,ID=None,element=None,skip=False,timeout=4):
+        if element is None:
+            self.wait_for_element(ID,timeout).send_keys(message)
+            shown_message=self.get_element(ID).text
+            if shown_message != message and not skip:
+                try: 
+                    message="$"+format(int(message), ',d')
+                    if shown_message ==message:
+                        return True
+                    else:raise ValueError("Intended.")
+                except:
+                    self.click_element(ID)
+                    sleep(1)
+                    self.action_chains.send_keys(message).perform()
+                    if self.driver.is_keyboard_shown():
+                        self.driver.press_keycode(4) 
+        else:
+            element.click()
+            sleep(1)
+            self.action_chains.send_keys(message).perform()
+            if self.driver.is_keyboard_shown():
+                self.driver.press_keycode(4) 
+
+            
+        
+        
     def wait_for_element_class(self,CLASS,timeout=5):     
 
         if len(CLASS) ==2:
@@ -193,6 +218,126 @@ class AppiumActions:
             for ELEM in x: 
                 if (ELEM.text==trigger_text):return ELEM
             return False
+        
+    def find_element_by_text(self,text):
+        return self.driver.find_element(MobileBy.XPATH,"//*[contains(@text,'%s')]"%text)
+
+        
+    def find_element_parent_by_text(self,Field):
+        # locator="//*[contains(@class, '%s')]"%Field.parent_class
+        locator=Field.parent_id
+        print(locator)
+        print(Field.parent_class)
+        element = self.wait_for_elements(locator,1)
+        for i in range(0,1):
+            for elem in element:
+                try:
+                    elem.find_element(MobileBy.XPATH,"//*[contains(@text,'%s')]"%Field.trigger_Title)
+                    return elem
+                except:
+                    pass 
+        return False
+    
+    def choose_option(self,parent,Field):
+        if not Field.mapped_by_index:
+            #Get values inside parent            
+            options=parent.find_elements(By.ID,Field.id)
+            for option in options:
+                if Field.choice in option.text:
+                    option.click()
+                    break
+            print("ISSUE IN CHOOSING OPTION, Can't find choice. Field: "+Field.trigger_Title)
+        else:
+            options=parent.find_elements(By.ID,Field.id)
+            options[Field.choice].click()
+            
+    def fill_input(self,parent,Field):
+        if not Field.mapped_by_index:
+            input=parent.find_element(By.ID,Field.id)
+            self.send_keys_to_element(Field.choice,element=input)
+        else:
+            input=parent.find_elements(By.ID,Field.id)[Field.index]
+            self.send_keys_to_element(Field.choice,element=input)
+
+    def forward_orientation(self,single_element_id):
+        elements=self.get_elements(single_element_id)
+        old_element=elements[1]
+        self.scroll_up_date()
+        elements=self.get_elements(single_element_id)
+        if old_element==elements[1]:
+            return False
+        else:
+            return True
+        
+    def _fill_year(self,Field):
+        self.click_element(Field_types.date_picker.year.id,6)
+        old_element="N/A"
+        Forward=True
+        Forward=self.forward_orientation(Field_types.date_picker.year.single_year_id)
+
+        while True:
+            elements=self.get_elements(Field_types.date_picker.year.single_year_id)
+            for elem in elements:
+                if elem.text == Field.choice_year:
+                    elem.click()
+                    return True
+            if Forward:     self.scroll_up_date()
+            else:   self.scroll_down_expiry_date()
+            sleep(0.3)
+    
+    def _fill_month(self,Field):
+        months=["January", "February", "March", "April", "May", "June","July","August","September","October","November","December"]
+        if Field.choice_month.isdigit(): 
+            choice=months[int(Field.choice_month)-1]
+        else:
+            choice=Field.choice_month
+        while True:
+            parent= self.wait_for_element(Field_types.date_picker.month.parent_id)
+            element=parent.find_element(By.CLASS_NAME,Field_types.date_picker.month.class_name)
+            full_date=element.get_attribute("content-desc")
+            month=""
+            for char in full_date: 
+                if char.isalpha():  month=month+char
+                
+            if month == choice: return True
+            elif months.index(month) > months.index(choice): 
+                self.click_element(Field_types.date_picker.month.back_button_id)
+            elif months.index(month) < months.index(choice): 
+                self.click_element(Field_types.date_picker.month.next_button_id)
+
+    def _fill_day(self,Field):
+        self.find_element_by_text(Field.choice_day).click()
+            
+        
+    def fill_date_picker(self,parent,Field):
+        parent.find_element(By.ID,Field.id).click()
+        sleep(1.5)
+        self._fill_year(Field)
+        self._fill_month(Field)
+        self._fill_day(Field)
+        self.click_element(Field_types.date_picker.ok_button_id)
+    
+    def fill_list_picker(self,parent,Field):
+        parent.find_element(By.ID,Field.id).click()
+        elements=self.get_elements(Field_types.list_picker.single_country_id)
+        for elem in elements:
+            if elem.text == Field.choice:
+                elem.click()
+                return True
+        sleep(1)
+        scroller=self.get_element(Field_types.list_picker.scroller.parent_id)
+        scroller_letters=scroller.find_elements(By.CLASS_NAME,Field_types.list_picker.scroller.values_class_name)
+        for letter in scroller_letters:
+            if letter.text == Field.choice[0]:
+                letter.click()
+                break
+        sleep(1)
+        elements=self.get_elements(Field_types.list_picker.single_country_id)
+        for elem in elements:
+            if elem.text == Field.choice:
+                elem.click()
+                return True
+        return False
 
 class Reporting():
     def __init__(self,driver,flow) :
@@ -496,7 +641,7 @@ class APIS:
                         data={  "email":self.email,
                                 "email_verified": "true",
                                 "verify_email":"true"},
-                        headers={"Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL3N0YWdpbmctbmJrc21hcnR3ZWFsdGguZXUuYXV0aDAuY29tLyIsInN1YiI6ImdhbEtZWlJKbzZ1eUFsZ2ZYZEFZazdvVWRUMmk1cllGQGNsaWVudHMiLCJhdWQiOiJodHRwczovL3N0YWdpbmctbmJrc21hcnR3ZWFsdGguZXUuYXV0aDAuY29tL2FwaS92Mi8iLCJpYXQiOjE2NzI5MDYxMDIsImV4cCI6MTY3NTQ5ODEwMiwiYXpwIjoiZ2FsS1laUkpvNnV5QWxnZlhkQVlrN29VZFQyaTVyWUYiLCJzY29wZSI6InJlYWQ6Y2xpZW50X2dyYW50cyBjcmVhdGU6Y2xpZW50X2dyYW50cyBkZWxldGU6Y2xpZW50X2dyYW50cyB1cGRhdGU6Y2xpZW50X2dyYW50cyByZWFkOnVzZXJzIHVwZGF0ZTp1c2VycyBkZWxldGU6dXNlcnMgY3JlYXRlOnVzZXJzIHJlYWQ6dXNlcnNfYXBwX21ldGFkYXRhIHVwZGF0ZTp1c2Vyc19hcHBfbWV0YWRhdGEgZGVsZXRlOnVzZXJzX2FwcF9tZXRhZGF0YSBjcmVhdGU6dXNlcnNfYXBwX21ldGFkYXRhIGNyZWF0ZTp1c2VyX3RpY2tldHMgcmVhZDpjbGllbnRzIHVwZGF0ZTpjbGllbnRzIGRlbGV0ZTpjbGllbnRzIGNyZWF0ZTpjbGllbnRzIHJlYWQ6Y2xpZW50X2tleXMgdXBkYXRlOmNsaWVudF9rZXlzIGRlbGV0ZTpjbGllbnRfa2V5cyBjcmVhdGU6Y2xpZW50X2tleXMgcmVhZDpjb25uZWN0aW9ucyB1cGRhdGU6Y29ubmVjdGlvbnMgZGVsZXRlOmNvbm5lY3Rpb25zIGNyZWF0ZTpjb25uZWN0aW9ucyByZWFkOnJlc291cmNlX3NlcnZlcnMgdXBkYXRlOnJlc291cmNlX3NlcnZlcnMgZGVsZXRlOnJlc291cmNlX3NlcnZlcnMgY3JlYXRlOnJlc291cmNlX3NlcnZlcnMgcmVhZDpkZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmRldmljZV9jcmVkZW50aWFscyBkZWxldGU6ZGV2aWNlX2NyZWRlbnRpYWxzIGNyZWF0ZTpkZXZpY2VfY3JlZGVudGlhbHMgcmVhZDpydWxlcyB1cGRhdGU6cnVsZXMgZGVsZXRlOnJ1bGVzIGNyZWF0ZTpydWxlcyByZWFkOnJ1bGVzX2NvbmZpZ3MgdXBkYXRlOnJ1bGVzX2NvbmZpZ3MgZGVsZXRlOnJ1bGVzX2NvbmZpZ3MgcmVhZDplbWFpbF9wcm92aWRlciB1cGRhdGU6ZW1haWxfcHJvdmlkZXIgZGVsZXRlOmVtYWlsX3Byb3ZpZGVyIGNyZWF0ZTplbWFpbF9wcm92aWRlciBibGFja2xpc3Q6dG9rZW5zIHJlYWQ6c3RhdHMgcmVhZDp0ZW5hbnRfc2V0dGluZ3MgdXBkYXRlOnRlbmFudF9zZXR0aW5ncyByZWFkOmxvZ3MgcmVhZDpzaGllbGRzIGNyZWF0ZTpzaGllbGRzIGRlbGV0ZTpzaGllbGRzIHVwZGF0ZTp0cmlnZ2VycyByZWFkOnRyaWdnZXJzIHJlYWQ6Z3JhbnRzIGRlbGV0ZTpncmFudHMgcmVhZDpndWFyZGlhbl9mYWN0b3JzIHVwZGF0ZTpndWFyZGlhbl9mYWN0b3JzIHJlYWQ6Z3VhcmRpYW5fZW5yb2xsbWVudHMgZGVsZXRlOmd1YXJkaWFuX2Vucm9sbG1lbnRzIGNyZWF0ZTpndWFyZGlhbl9lbnJvbGxtZW50X3RpY2tldHMgcmVhZDp1c2VyX2lkcF90b2tlbnMgY3JlYXRlOnBhc3N3b3Jkc19jaGVja2luZ19qb2IgZGVsZXRlOnBhc3N3b3Jkc19jaGVja2luZ19qb2IgcmVhZDpjdXN0b21fZG9tYWlucyBkZWxldGU6Y3VzdG9tX2RvbWFpbnMgY3JlYXRlOmN1c3RvbV9kb21haW5zIHJlYWQ6ZW1haWxfdGVtcGxhdGVzIGNyZWF0ZTplbWFpbF90ZW1wbGF0ZXMgdXBkYXRlOmVtYWlsX3RlbXBsYXRlcyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.TraAl-2qv77yyNUJIWmAcqbBiW2BlHczrZJ9h5OKutSGVmPNzUYbwlt0wX1P57RmjfWmJlqzg1GPFSmv4W4tl6hYYJ-WPOYpGqzemEoDt-jVO2wlcdn2G9-hSN4t2d_wJt2Zl4tSExnb3VKkK1aoHcbi21wPa8HwLD0jFsULBAF9IJL1SPbRqRqhDG5AAY6YTvdqt87Z1Bm14PcBn7xwENUW7axh_0XhWjCoxLBPI4EajwK7NWg6KWa0mFR7rUi5Ie6oaRcW1Rt-b7ZzCov4JOBDZEeLYPufJzorUyI4EXL9-e5gsXlfmE2jYEshaGugcePnvHxEhcbxNq5E1JBmqQ"})
+                        headers={"Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1xcHNlck9mQzJyT0l6ZjhxMWdUTyJ9.eyJpc3MiOiJodHRwczovL3N0YWdpbmctbmJrc21hcnR3ZWFsdGguZXUuYXV0aDAuY29tLyIsInN1YiI6ImdhbEtZWlJKbzZ1eUFsZ2ZYZEFZazdvVWRUMmk1cllGQGNsaWVudHMiLCJhdWQiOiJodHRwczovL3N0YWdpbmctbmJrc21hcnR3ZWFsdGguZXUuYXV0aDAuY29tL2FwaS92Mi8iLCJpYXQiOjE2NzYwMTk3NTEsImV4cCI6MTY3ODYxMTc1MSwiYXpwIjoiZ2FsS1laUkpvNnV5QWxnZlhkQVlrN29VZFQyaTVyWUYiLCJzY29wZSI6InJlYWQ6Y2xpZW50X2dyYW50cyBjcmVhdGU6Y2xpZW50X2dyYW50cyBkZWxldGU6Y2xpZW50X2dyYW50cyB1cGRhdGU6Y2xpZW50X2dyYW50cyByZWFkOnVzZXJzIHVwZGF0ZTp1c2VycyBkZWxldGU6dXNlcnMgY3JlYXRlOnVzZXJzIHJlYWQ6dXNlcnNfYXBwX21ldGFkYXRhIHVwZGF0ZTp1c2Vyc19hcHBfbWV0YWRhdGEgZGVsZXRlOnVzZXJzX2FwcF9tZXRhZGF0YSBjcmVhdGU6dXNlcnNfYXBwX21ldGFkYXRhIGNyZWF0ZTp1c2VyX3RpY2tldHMgcmVhZDpjbGllbnRzIHVwZGF0ZTpjbGllbnRzIGRlbGV0ZTpjbGllbnRzIGNyZWF0ZTpjbGllbnRzIHJlYWQ6Y2xpZW50X2tleXMgdXBkYXRlOmNsaWVudF9rZXlzIGRlbGV0ZTpjbGllbnRfa2V5cyBjcmVhdGU6Y2xpZW50X2tleXMgcmVhZDpjb25uZWN0aW9ucyB1cGRhdGU6Y29ubmVjdGlvbnMgZGVsZXRlOmNvbm5lY3Rpb25zIGNyZWF0ZTpjb25uZWN0aW9ucyByZWFkOnJlc291cmNlX3NlcnZlcnMgdXBkYXRlOnJlc291cmNlX3NlcnZlcnMgZGVsZXRlOnJlc291cmNlX3NlcnZlcnMgY3JlYXRlOnJlc291cmNlX3NlcnZlcnMgcmVhZDpkZXZpY2VfY3JlZGVudGlhbHMgdXBkYXRlOmRldmljZV9jcmVkZW50aWFscyBkZWxldGU6ZGV2aWNlX2NyZWRlbnRpYWxzIGNyZWF0ZTpkZXZpY2VfY3JlZGVudGlhbHMgcmVhZDpydWxlcyB1cGRhdGU6cnVsZXMgZGVsZXRlOnJ1bGVzIGNyZWF0ZTpydWxlcyByZWFkOnJ1bGVzX2NvbmZpZ3MgdXBkYXRlOnJ1bGVzX2NvbmZpZ3MgZGVsZXRlOnJ1bGVzX2NvbmZpZ3MgcmVhZDplbWFpbF9wcm92aWRlciB1cGRhdGU6ZW1haWxfcHJvdmlkZXIgZGVsZXRlOmVtYWlsX3Byb3ZpZGVyIGNyZWF0ZTplbWFpbF9wcm92aWRlciBibGFja2xpc3Q6dG9rZW5zIHJlYWQ6c3RhdHMgcmVhZDp0ZW5hbnRfc2V0dGluZ3MgdXBkYXRlOnRlbmFudF9zZXR0aW5ncyByZWFkOmxvZ3MgcmVhZDpzaGllbGRzIGNyZWF0ZTpzaGllbGRzIGRlbGV0ZTpzaGllbGRzIHVwZGF0ZTp0cmlnZ2VycyByZWFkOnRyaWdnZXJzIHJlYWQ6Z3JhbnRzIGRlbGV0ZTpncmFudHMgcmVhZDpndWFyZGlhbl9mYWN0b3JzIHVwZGF0ZTpndWFyZGlhbl9mYWN0b3JzIHJlYWQ6Z3VhcmRpYW5fZW5yb2xsbWVudHMgZGVsZXRlOmd1YXJkaWFuX2Vucm9sbG1lbnRzIGNyZWF0ZTpndWFyZGlhbl9lbnJvbGxtZW50X3RpY2tldHMgcmVhZDp1c2VyX2lkcF90b2tlbnMgY3JlYXRlOnBhc3N3b3Jkc19jaGVja2luZ19qb2IgZGVsZXRlOnBhc3N3b3Jkc19jaGVja2luZ19qb2IgcmVhZDpjdXN0b21fZG9tYWlucyBkZWxldGU6Y3VzdG9tX2RvbWFpbnMgY3JlYXRlOmN1c3RvbV9kb21haW5zIHJlYWQ6ZW1haWxfdGVtcGxhdGVzIGNyZWF0ZTplbWFpbF90ZW1wbGF0ZXMgdXBkYXRlOmVtYWlsX3RlbXBsYXRlcyIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.whCTVURvdgz7GiwdSXk5OASy8sxDasLv5ukgP46DDsd_EFmsOAMEMujGyl-XsMciQ3NmufpwWdVnETMAcVjfyMYWi7IWi1pPk3SzE-oJzVZC8ZhewcT4FuQzJVzeyKg6AC1gvbACS4h2igN_nAbEkltetorqOSWnK6BQL49kE5NTVGEonaaRIofP-i9qig0bG1xKO3epbKFSRsH5ujtScTnsr8-wonWaZriMsnapVCR0rwjmzFzekRf5pLqgh433-dof5eaOdpTEF4iAEHqrdxxUBZ7nz3pfU9pjUbSnnFnhJflSz5mjWh1gsRlHZxkSe_TIwXqADdVyJRnGobzGBw"})
         print(response.json())
         print(response.status_code)
 
@@ -614,6 +759,10 @@ class ApplicationHelpers:
         self.driver = driver
         self.AppiumGestures=AppiumActions(self.driver)
         
+
+        self.Report=Reporting(self.driver,"Application Helpers")
+
+
     def loading_stuck(self):
         count=0
         while True:
@@ -624,6 +773,41 @@ class ApplicationHelpers:
             if count==100:
                 return True
     
+    def map_elements(self,class1, class2):
+        mapped_elements = {}
+        for element in dir(class1):
+            if not element.startswith("__"):
+                class1_attr = getattr(class1, element)
+                class2_attr = getattr(class2, element, None)
+                if class2_attr:
+                    mapped_elements[class1_attr] = class2_attr
+        return mapped_elements
+    
+    def map_attributes(self,class1, class2):
+        mapped_elements = {}
+        for class1_attr in dir(class1):
+            if not class1_attr.startswith('__'):
+                class1_attr_val = getattr(class1, class1_attr)
+                if class1_attr_val in dir(class2):
+                    class2_attr = getattr(class2, class1_attr_val)
+                    mapped_elements[class1_attr_val] = class2_attr
+                elif class1_attr in dir(class2):
+                    class2_attr = getattr(class2, class1_attr)    
+                    mapped_elements[class1_attr_val] = class2_attr
+        return mapped_elements
+
+    
+    def test_screen_localization(self,screen):
+        ids,localization=screen
+        element_map=self.map_attributes(ids,localization)
+        # Loop through element_map and compare corresponding element texts
+        for ids_element, localization_element in element_map.items():
+            try:
+                element=self.AppiumGestures.wait_for_element(ids_element,2)
+                if element.text != localization_element:
+                    self.Report.report_testcase(False,"N/A","N/A",element.text,localization_element)
+            except:
+                pass
 # A=APIS(Credentials.email)
 # A._get_mobile_number()
 # A._get_mobile_number_otp()
