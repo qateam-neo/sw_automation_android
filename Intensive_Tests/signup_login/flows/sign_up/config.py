@@ -6,7 +6,7 @@ x=APIS(email="roy.braish+test@neo.ae").get_email_count()
 class Credentials:
     first_name="test"
     last_name="test"
-    email="roy.braish+test@neo.ae"
+    email="roy.braish+kyc31test@neo.ae"
     password="Password123"
 
 

@@ -321,35 +321,55 @@ def KYC_AddressInfo(driver,ReportDriver,AddressInfo_JSON):
         Titles[2].click()
         SelectLocation(driver,x,AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["Area"])
 
+
     WebDriverWait(driver,20).until(EC.visibility_of_element_located((By.ID, "neo.nbkc.smartwealth.demo:id/tvTitle")))
     Titles= driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/tvTitle")
     Inputs=driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/etValue")
 
                 
     if Titles[3].text=="Block"and Inputs[3].text!=AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["Block"]:
-        Inputs[3].send_keys(AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["Block"])
+        try:Inputs[3].send_keys(str(1))
+        except:
+            WebDriverWait(driver,20).until(EC.visibility_of_element_located((By.ID, "neo.nbkc.smartwealth.demo:id/tvTitle")))
+            Titles= driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/tvTitle")
+            Inputs=driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/etValue")
+            Inputs[3].send_keys(str(1))
         sleep(1)
         
     if Titles[4].text=="Street"and Inputs[4].text!=AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["Street"]:
 
-        Inputs[4].send_keys(AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["Street"])
+        try:Inputs[4].send_keys(str(1))
+        except:
+            WebDriverWait(driver,20).until(EC.visibility_of_element_located((By.ID, "neo.nbkc.smartwealth.demo:id/tvTitle")))
+            Titles= driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/tvTitle")
+            Inputs=driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/etValue")
+            Inputs[4].send_keys(str(1))
         sleep(1)
 
     
     if Titles[5].text=="House"and Inputs[5].text!=AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["House"]:
-        
-
-        Inputs[5].send_keys(AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["House"])
+        try:Inputs[5].send_keys(str(1))
+        except:
+            WebDriverWait(driver,20).until(EC.visibility_of_element_located((By.ID, "neo.nbkc.smartwealth.demo:id/tvTitle")))
+            Titles= driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/tvTitle")
+            Inputs=driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/etValue")
+            Inputs[5].send_keys(str(1))
         sleep(1)
 
     if Titles[6].text=="Mobile number"and Inputs[6].text!=AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["Mobile number"]:
  
-        Inputs[6].send_keys(AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["Mobile number"])
+        try:Inputs[6].send_keys(AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["Mobile number"])
+        except:
+            WebDriverWait(driver,20).until(EC.visibility_of_element_located((By.ID, "neo.nbkc.smartwealth.demo:id/tvTitle")))
+            Titles= driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/tvTitle")
+            Inputs=driver.find_elements(By.ID,"neo.nbkc.smartwealth.demo:id/etValue")
+            Inputs[6].send_keys(str(AddressInfo_JSON["KYC_3.0"]["AddressInfo_Fields"]["Mobile number"]))
         sleep(2)
     
     MobileNew=False
 
-        
+    WebDriverWait(driver,20).until(EC.element_to_be_clickable((By.ID, "neo.nbkc.smartwealth.demo:id/submitButton")))
+
     driver.find_element(By.ID,"neo.nbkc.smartwealth.demo:id/submitButton").click()
     # else:
     #     print("Still missing field"+Fields[i].text)  

@@ -323,3 +323,677 @@ TEST Fail: Transfer Instructions
 	Expected:		You're almost done! You still need to manually transfer money from your bank app to complete your deposit.
 	Actual:		You’re almost done! You still need to manually transfer money from your bank app to complete your deposit.
 TEST Fail: predefined islamic full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: customized etf full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: customized islamic full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: customized etf full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: customized islamic full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: customized etf full user test
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: customized etf full user test
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: customized etf full user test
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: customized etf full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: customized etf full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: customized islamic full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: predefined etf full user test
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: customized etf full user test
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+Verify Mobile Number is not shown
+TEST Fail: customized islamic full user test
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: customized etf full user test
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Configure Device and Connect Session
+Verify Mobile Number is not shown
+TEST Fail: customized islamic full user test
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST success:  Configure Device and Connect Session
+TEST Fail: Sign Up
+	Expected:		Email exists
+	Actual:		Expecting a new email
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Important Update
+	Actual:		Personal info
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		The required information to be collected have changed since you last logged in and submitted your information. You will be taken back to the start to review your previously entered information and fill what is missing to continue.
+	Actual:		Please enter your personal details and address information in the following screens to start creating your investment profile.
+TEST Fail: N/A
+	Expected:		Personal Info
+	Actual:		Personal info
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: N/A
+	Expected:		The required information to be collected have changed since you last logged in and submitted your information. You will be taken back to the start to review your previously entered information and fill what is missing to continue.
+	Actual:		Please enter your personal details and address information in the following screens to start creating your investment profile.
+TEST Fail: N/A
+	Expected:		Continue
+	Actual:		Start
+TEST Fail: N/A
+	Expected:		Important Update
+	Actual:		Personal Info
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen
+TEST success:  Connect Session
+TEST Fail: Personal info blue screen

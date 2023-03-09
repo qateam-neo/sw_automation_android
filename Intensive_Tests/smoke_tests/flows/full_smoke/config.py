@@ -5,5 +5,5 @@ class SmokeTestData:
     """
     
     flows=["customized","predefined"]
-    user_type_options=["etf","islamic"]
+    user_type_options=["islamic","etf"]
     

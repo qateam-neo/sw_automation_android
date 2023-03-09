@@ -1,10 +1,11 @@
 import os
 import sys
-from Intensive_Tests.smoke_tests.flows.full_smoke.config import SmokeTestData
+
 
 sys.path.append(os.getcwd())
 import SystemPath
-
+from Intensive_Tests.signup_login.flows.sign_up.config import Credentials
+from Intensive_Tests.smoke_tests.flows.full_smoke.config import SmokeTestData
 
 import json
 from BookaCall import BookaCall
@@ -139,4 +140,8 @@ class FullSmokeTests():
                     self.full_user_flow(self.user_type,self.flow)
                     self.Report.report_testcase(True,"\n%s %s full user test\n\n"%(self.flow,self.user_type))
                 except Exception as error:
+                    print("ERROR-ERROR-ERROR-ERROR-ERROR-ERROR")
+                    print(error)
+                    print("ERROR-ERROR-ERROR-ERROR-ERROR-ERROR")
+                    
                     self.Report.report_testcase(False,"%s %s full user test"%(self.flow,self.user_type),"N/A","N/A",str(error))
